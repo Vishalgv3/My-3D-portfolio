@@ -1,0 +1,11 @@
+Model Information:
+* title:	Krishna 3D model 3D print
+* source:	https://sketchfab.com/3d-models/krishna-3d-model-3d-print-54fddd6f00d140119bc50bd141083fe6
+* author:	Ragesh (https://sketchfab.com/Ragesh)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Krishna 3D model 3D print" (https://sketchfab.com/3d-models/krishna-3d-model-3d-print-54fddd6f00d140119bc50bd141083fe6) by Ragesh (https://sketchfab.com/Ragesh) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
