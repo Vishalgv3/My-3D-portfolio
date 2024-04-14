@@ -9,6 +9,8 @@ body {
 
 #leva__root>* {
 
+  margin: 10rem 28rem 0 0;
+  position: fixed;
 
-  scale: 1;
+  scale: 4;
 }

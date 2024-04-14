@@ -8,6 +8,10 @@ import { Leva, useControls } from 'leva';
 import { useFrame } from '@react-three/fiber';
 
 export function Vishal(props) {
+
+    const { animation } = props;
+
+    // ---------------- useGLTF
     const { nodes, materials } = useGLTF('3D/models/vishal.glb');
 
     // ---------------- use refs
@@ -26,19 +30,22 @@ export function Vishal(props) {
     Flying[0].name = 'Flying';
     FallingToRoll[0].name = 'FallingToRoll';
 
-    const { actions } = useAnimations(FallingToRoll, group);
+    const { actions } = useAnimations([IdleToSprint[0], Flying[0], FallingToRoll[0]], group);
 
     // ---------------- useEffect
     useEffect(() => {
-        actions['FallingToRoll'].reset().play();
-    }, []);
+        actions[animation].reset().fadeIn(0.35).play();
+        return () => actions[animation].reset().fadeOut(0.35);
+    }, [animation]);
 
     // ---------------- useFrame
     useFrame((state) => {
         if (jumpToRoll) {
-            actions['FallingToRoll'].play();
+            // actions[animation].fadeOut(0.5);
+            // actions['Flying'].fadeIn(0.5).play();
         } else {
-            actions['FallingToRoll'].stop();
+            // actions['Flying'].fadeOut(0.5).stop();
+            // actions[animation].fadeIn(0.5).play();
         }
     })
 
