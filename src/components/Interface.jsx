@@ -9,10 +9,10 @@ export const Interface = () => {
             <div className="flex flex-col items-center w-screen">
                 <HomeSection />
                 <AboutSection />
-                <Section>
-                    <h1>Projects</h1>
-                </Section>
                 <ContactSection />
+                {/* <Section>
+                    <h1>Projects</h1>
+                </Section> */}
             </div>
         </>
     );

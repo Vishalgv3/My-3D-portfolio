@@ -7,6 +7,9 @@ import { ScrollManager } from "./components/ScrollManager";
 import { Menu } from "./components/Menu";
 import { MotionConfig } from "framer-motion";
 
+import { framerMotionConfig } from "./components/config";
+import { Cursor } from "./components/Cursor";
+
 function App() {
 
   // ------------- state variables
@@ -20,19 +23,13 @@ function App() {
 
   return (
     <>
-      <MotionConfig transition={{
-        type: "spring",
-        mass: 5,
-        stiffness: 500,
-        damping: 50,
-        restDelta: 0.0001,
-      }}>
+      <MotionConfig transition={{ ...framerMotionConfig }}>
         <Canvas shadows camera={{ position: [0, 0, 10], fov: 42 }}>
           <color attach="background" args={["#ececec"]} />
           <ScrollControls pages={4} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
             {/* <Scroll> */}
-            <Experience section={section} />
+            <Experience section={section} menuOpened={menuOpened} />
             {/* </Scroll> */}
             <Scroll html>
               <Interface />
@@ -40,7 +37,8 @@ function App() {
           </ScrollControls>
         </Canvas >
         <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
-      </MotionConfig>
+      </MotionConfig >
+      <Cursor />
     </>
   );
 }
