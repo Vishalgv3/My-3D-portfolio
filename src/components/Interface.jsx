@@ -10,9 +10,6 @@ export const Interface = () => {
                 <HomeSection />
                 <AboutSection />
                 <ContactSection />
-                {/* <Section>
-                    <h1>Projects</h1>
-                </Section> */}
             </div>
         </>
     );

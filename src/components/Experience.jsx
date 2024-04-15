@@ -5,12 +5,13 @@ import { ShreeKrishna } from "./Avatars/ShreeKrishna";
 import { SeanSir } from "./Avatars/SeanSir";
 import { Papa } from "./Avatars/Papa";
 import { Mumum } from "./Avatars/Mumum";
-import { useControls } from "leva";
+import { Projects } from "./Other3D/Project";
 
 import { motion } from "framer-motion-3d";
 import { useEffect, useState } from "react";
 import { animate, useMotionValue } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
+import { useControls } from "leva";
 
 import { framerMotionConfig } from "./config";
 
@@ -60,7 +61,7 @@ export const Experience = (props) => {
   return (
     <>
       <Sky />
-      <Environment preset="sunset" />
+      {/* <Environment preset="sunset" /> */}
 
       <group position-y={-1}>
         <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
@@ -108,6 +109,8 @@ export const Experience = (props) => {
           <meshBasicMaterial color="#cbcbcb" />
         </mesh>
       </group>
+
+      <Projects />
     </>
   );
 };
