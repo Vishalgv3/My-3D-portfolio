@@ -15,6 +15,7 @@ import { useControls } from "leva";
 
 import { framerMotionConfig } from "./config";
 import { Background } from "./Other3D/Background";
+import { Projects } from "./Other3D/Project";
 
 export const Experience = (props) => {
 
@@ -64,6 +65,10 @@ export const Experience = (props) => {
       <Sky />
       <Background />
 
+
+      {/* <ambientLight intensity={0.5} /> */}
+      <spotLight position={[0, 2, 1]} intensity={1} angle={Math.PI / 1} penumbra={1} castShadow
+      />
       <group position-y={-1}>
         <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
 
@@ -109,9 +114,9 @@ export const Experience = (props) => {
           <planeBufferGeometry />
           <meshBasicMaterial color="#cbcbcb" />
         </mesh>
+        <Projects />
       </group>
 
-      {/* <Projects /> */}
     </>
   );
 };

@@ -48,7 +48,7 @@ export const HomeSection = (props) => {
                         duration: 1,
                         delay: 2
                     }}
-                    onClick={() => setSection(2)}
+                    onClick={() => setSection(3)}
                 >Contact Me</motion.button>
             </h1>
         </Section>
