@@ -1,4 +1,5 @@
-import { Section } from "./Section"
+import { Section } from "./Section";
+import { motion } from "framer-motion";
 
 export const HomeSection = () => {
     return (
@@ -14,10 +15,37 @@ export const HomeSection = () => {
                 Hi, I'm
                 <br />
                 <span className="bg-white px-1 italic">Vishal Chaudhari</span>
-                <p className="text-lg text-gray-600 mt-4">
-                    I am a full-stack developer with a passion for creating beautiful and feature rich websites.
-                </p>
-                <button className={`bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16`}>Contact Me</button>
+                <motion.p className="text-lg text-gray-600 mt-4"
+                    initial={{
+                        opacity: 0,
+                        y: 25,
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                    }}
+                    transition={{
+                        duration: 1,
+                        delay: 1.5
+                    }}
+                >
+                    I am a full-stack developer with a passion
+                    <br /> for creating beautiful and feature rich websites.
+                </motion.p>
+                <motion.button className={`bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16`}
+                    initial={{
+                        opacity: 0,
+                        y: 25,
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                    }}
+                    transition={{
+                        duration: 1,
+                        delay: 2
+                    }}
+                >Contact Me</motion.button>
             </h1>
         </Section>
     )
