@@ -51,9 +51,10 @@ export function Vishal(props) {
 
     return (
         <group {...props} ref={group} dispose={null}>
-            <group rotation={[-Math.PI / 2, 0, 0]}>
+            <group rotation={[-Math.PI / 2, 0, 0]} frustumCulled={false}>
                 <primitive object={nodes.Hips} />
                 <skinnedMesh
+                    frustumCulled={false}
                     name="EyeLeft"
                     geometry={nodes.EyeLeft.geometry}
                     material={materials.Wolf3D_Eye}
@@ -62,6 +63,7 @@ export function Vishal(props) {
                     morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     name="EyeRight"
                     geometry={nodes.EyeRight.geometry}
                     material={materials.Wolf3D_Eye}
@@ -70,6 +72,7 @@ export function Vishal(props) {
                     morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     name="Wolf3D_Head"
                     geometry={nodes.Wolf3D_Head.geometry}
                     material={materials.Wolf3D_Skin}
@@ -78,6 +81,7 @@ export function Vishal(props) {
                     morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     name="Wolf3D_Teeth"
                     geometry={nodes.Wolf3D_Teeth.geometry}
                     material={materials.Wolf3D_Teeth}
@@ -86,16 +90,19 @@ export function Vishal(props) {
                     morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     geometry={nodes.Wolf3D_Hair.geometry}
                     material={materials.Wolf3D_Hair}
                     skeleton={nodes.Wolf3D_Hair.skeleton}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     geometry={nodes.Wolf3D_Glasses.geometry}
                     material={materials.Wolf3D_Glasses}
                     skeleton={nodes.Wolf3D_Glasses.skeleton}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     name="Wolf3D_Outfit_Top"
                     geometry={nodes.Wolf3D_Outfit_Top.geometry}
                     material={materials.Wolf3D_Outfit_Top}
@@ -104,6 +111,7 @@ export function Vishal(props) {
                     morphTargetInfluences={nodes.Wolf3D_Outfit_Top.morphTargetInfluences}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     name="Wolf3D_Outfit_Bottom"
                     geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
                     material={materials.Wolf3D_Outfit_Bottom}
@@ -112,6 +120,7 @@ export function Vishal(props) {
                     morphTargetInfluences={nodes.Wolf3D_Outfit_Bottom.morphTargetInfluences}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     name="Wolf3D_Outfit_Footwear"
                     geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
                     material={materials.Wolf3D_Outfit_Footwear}
@@ -120,6 +129,7 @@ export function Vishal(props) {
                     morphTargetInfluences={nodes.Wolf3D_Outfit_Footwear.morphTargetInfluences}
                 />
                 <skinnedMesh
+                    frustumCulled={false}
                     name="Wolf3D_Body"
                     geometry={nodes.Wolf3D_Body.geometry}
                     material={materials.Wolf3D_Body}

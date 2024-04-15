@@ -1,4 +1,4 @@
-import { OrbitControls, Sky, Environment, ContactShadows } from "@react-three/drei";
+import { OrbitControls, Sky, Environment, ContactShadows, useScroll } from "@react-three/drei";
 import { Vishal } from "./Avatars/Vishal";
 import { ShreeRam } from "./Avatars/ShreeRam";
 import { ShreeKrishna } from "./Avatars/ShreeKrishna";
@@ -8,7 +8,7 @@ import { Mumum } from "./Avatars/Mumum";
 import { useControls } from "leva";
 
 import { motion } from "framer-motion-3d";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { animate, useMotionValue } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
 
@@ -16,8 +16,13 @@ import { framerMotionConfig } from "./config";
 
 export const Experience = (props) => {
 
-  const { section, menuOpened } = props;
+  const { menuOpened } = props;
+  const data = useScroll();
 
+  // ----------------------- State variables
+  const [section, setSection] = useState(0);
+
+  // ----------------------- Leva User Controls
   const { animation } = useControls({
     animation: {
       value: "IdleToSprint",
@@ -25,29 +30,35 @@ export const Experience = (props) => {
     }
   });
 
-  const { camera } = useThree();
-
+  // ----------------------- use Three
   const cameraPositionX = useMotionValue();
   const cameraLookAtX = useMotionValue();
 
+
+  // ----------------------- use Effect
   useEffect(() => {
     animate(cameraPositionX, menuOpened ? -5 : 0, { ...framerMotionConfig });
     animate(cameraLookAtX, menuOpened ? 5 : 0, { ...framerMotionConfig });
+  }, [menuOpened, cameraPositionX, cameraLookAtX])
 
-  }, [section, menuOpened, cameraPositionX, cameraLookAtX])
-
+  // ----------------------- use Frame
   useFrame((state) => {
+    let curSection = Math.floor(data.scroll.current * data.pages);
 
-    if (camera) {
-      camera.position.x = cameraPositionX.get();
-      camera.lookAt(cameraLookAtX.get(), 0, 0);
+    if (curSection > 3) {
+      curSection = 3;
     }
 
+    if (curSection !== section) {
+      setSection(curSection);
+    }
+
+    state.camera.position.x = cameraPositionX.get();
+    state.camera.lookAt(cameraLookAtX.get(), 0, 0);
   })
 
   return (
     <>
-      <OrbitControls enableZoom={false} />
       <Sky />
       <Environment preset="sunset" />
 
@@ -58,8 +69,30 @@ export const Experience = (props) => {
         <Papa position-x={-2} />
 
         <motion.group position-x={-1} rotateY={Math.PI / 2}
+          // animate={{
+          //   // rotateY: section === 0 ? 0 : Math.PI / 2,
+
+          //   // make the avatar disappear when the menu is opened
+          //   scale: menuOpened ? 0 : 1,
+
+          //   // make the avatar emit red light when the menu is closed
+          //   intensity: menuOpened ? 0 : 1,
+
+          //   // make the avatar rotate when the menu is closed
+          //   rotateY: menuOpened ? 0 : Math.PI / 4,
+          // }}
+          initial={{
+            scale: 1,
+            intensity: 0,
+            rotateY: Math.PI / 4,
+          }}
           animate={{
-            rotateY: section === 0 ? 0 : Math.PI / 2,
+            scale: menuOpened ? 2 : 1,
+            intensity: menuOpened ? 2 : 1,
+            // rotateY: menuOpened ? 0 : Math.PI / 4,
+          }}
+          transition={{
+            duration: 1,
           }}
         >
           <Vishal animation={animation} />
