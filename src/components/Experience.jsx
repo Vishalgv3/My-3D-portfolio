@@ -29,7 +29,7 @@ export const Experience = (props) => {
   const { animation } = useControls({
     animation: {
       value: "IdleToSprint",
-      options: ["IdleToSprint", "Flying", "FallingToRoll"],
+      options: ["IdleToSprint", "Flying", "FallingToRoll", "JumpOver"],
     }
   });
 
@@ -48,11 +48,13 @@ export const Experience = (props) => {
   useFrame((state) => {
     let curSection = Math.floor(data.scroll.current * data.pages);
 
+    if (curSection < 0) curSection = 0;
+
     if (curSection == 2 || curSection == 3) {
       curSection = 1;
     } else if (curSection == 4) {
       curSection = 2;
-    } else if (curSection == 5) {
+    } else if (curSection >= 5) {
       curSection = 3;
     }
 

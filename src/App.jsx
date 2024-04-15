@@ -2,38 +2,42 @@ import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { Scroll, ScrollControls } from "@react-three/drei";
 import { Interface } from "./components/Interface";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { ScrollManager } from "./components/ScrollManager";
 import { Menu } from "./components/Menu";
 import { MotionConfig } from "framer-motion";
 
 import { framerMotionConfig } from "./data/config";
 import { Cursor } from "./components/Cursor";
+import { LoadingOverlay } from "./components/UI/LoadingOverlay";
 
 function App() {
 
   // ------------- state variables
+  const [started, setStarted] = useState(false);
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
 
   // ------------- use Effect
   useEffect(() => {
     setMenuOpened(false);
-  }, [section])
+  }, [section, started])
 
   return (
     <>
-      <LoadingOverlay />
+      <LoadingOverlay started={started} setStarted={setStarted} />
       <MotionConfig transition={{ ...framerMotionConfig }}>
         <Canvas shadows camera={{ position: [0, 0, 10], fov: 42 }}>
           <color attach="background" args={["#ececec"]} />
           <ScrollControls pages={6} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
             <Scroll>
-              <Experience section={section} menuOpened={menuOpened} />
+              <Suspense>
+                <Experience section={section} menuOpened={menuOpened} />
+              </Suspense>
             </Scroll>
             <Scroll html>
-              <Interface setSection={setSection} />
+              {started && <Interface started={started} setSection={setSection} />}
             </Scroll>
           </ScrollControls>
         </Canvas >
