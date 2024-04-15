@@ -26,11 +26,11 @@ function App() {
       <MotionConfig transition={{ ...framerMotionConfig }}>
         <Canvas shadows camera={{ position: [0, 0, 10], fov: 42 }}>
           <color attach="background" args={["#ececec"]} />
-          <ScrollControls pages={4} damping={0.1}>
+          <ScrollControls pages={6} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
-            {/* <Scroll> */}
-            <Experience section={section} menuOpened={menuOpened} />
-            {/* </Scroll> */}
+            <Scroll>
+              <Experience section={section} menuOpened={menuOpened} />
+            </Scroll>
             <Scroll html>
               <Interface setSection={setSection} />
             </Scroll>

@@ -31,11 +31,12 @@ export const AboutSection = () => {
             
             */}
 
-            <h1 className={`
-                text-6xl font-extrabold leading-snug
-            `}>
-                ABOUT ME
-            </h1>
+            <Section>
+                <h1 className={`text-6xl font-extrabold leading-snug`}>
+                    ABOUT ME
+                </h1>
+            </Section>
+
         </Section>
     )
 }
