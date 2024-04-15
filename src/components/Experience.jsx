@@ -13,7 +13,7 @@ import { animate, useMotionValue } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useControls } from "leva";
 
-import { framerMotionConfig } from "./config";
+import { framerMotionConfig } from "../data/config";
 import { Background } from "./Other3D/Background";
 import { Projects } from "./Other3D/Project";
 

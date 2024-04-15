@@ -7,7 +7,7 @@ import { ScrollManager } from "./components/ScrollManager";
 import { Menu } from "./components/Menu";
 import { MotionConfig } from "framer-motion";
 
-import { framerMotionConfig } from "./components/config";
+import { framerMotionConfig } from "./data/config";
 import { Cursor } from "./components/Cursor";
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
 
   return (
     <>
+      <LoadingOverlay />
       <MotionConfig transition={{ ...framerMotionConfig }}>
         <Canvas shadows camera={{ position: [0, 0, 10], fov: 42 }}>
           <color attach="background" args={["#ececec"]} />
