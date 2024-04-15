@@ -1,7 +1,10 @@
 import { Section } from "./Section";
 import { motion } from "framer-motion";
 
-export const HomeSection = () => {
+export const HomeSection = (props) => {
+
+    const { setSection } = props;
+
     return (
 
 
@@ -45,6 +48,7 @@ export const HomeSection = () => {
                         duration: 1,
                         delay: 2
                     }}
+                    onClick={() => setSection(2)}
                 >Contact Me</motion.button>
             </h1>
         </Section>
