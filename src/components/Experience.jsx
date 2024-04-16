@@ -1,4 +1,4 @@
-import { OrbitControls, Sky, Environment, ContactShadows, useScroll } from "@react-three/drei";
+import { OrbitControls, Sky, Environment, ContactShadows, useScroll, Scroll } from "@react-three/drei";
 import { Vishal } from "./Avatars/Vishal";
 import { ShreeRam } from "./Avatars/ShreeRam";
 import { ShreeKrishna } from "./Avatars/ShreeKrishna";
@@ -68,61 +68,60 @@ export const Experience = (props) => {
 
   return (
     <>
-      <Sky />
       <Background />
 
+      <Scroll>
 
-      {/* <ambientLight intensity={0.5} /> */}
-      <spotLight position={[0, 2, 1]} intensity={1} angle={Math.PI / 1} penumbra={1} castShadow
-      />
-      <group position-y={-1}>
-        <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
+        <directionalLight intensity={1} position={[0, 5, 5]} />
 
-        <Mumum position-x={-3} />
-        <Papa position-x={-2} />
+        <group position-y={-1}>
+          <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
 
-        <motion.group position-x={-1} rotateY={Math.PI / 2}
-          // animate={{
-          //   // rotateY: section === 0 ? 0 : Math.PI / 2,
+          <Mumum position-x={-3} />
+          <Papa position-x={-2} />
 
-          //   // make the avatar disappear when the menu is opened
-          //   scale: menuOpened ? 0 : 1,
+          <motion.group position-x={-1} rotateY={Math.PI / 2}
+            // animate={{
+            //   // rotateY: section === 0 ? 0 : Math.PI / 2,
 
-          //   // make the avatar emit red light when the menu is closed
-          //   intensity: menuOpened ? 0 : 1,
+            //   // make the avatar disappear when the menu is opened
+            //   scale: menuOpened ? 0 : 1,
 
-          //   // make the avatar rotate when the menu is closed
-          //   rotateY: menuOpened ? 0 : Math.PI / 4,
-          // }}
-          initial={{
-            scale: 1,
-            intensity: 0,
-            rotateY: Math.PI / 4,
-          }}
-          animate={{
-            scale: menuOpened ? 2 : 1,
-            intensity: menuOpened ? 2 : 1,
-            // rotateY: menuOpened ? 0 : Math.PI / 4,
-          }}
-          transition={{
-            duration: 1,
-          }}
-        >
-          <Vishal animation={animation} />
-        </motion.group>
+            //   // make the avatar emit red light when the menu is closed
+            //   intensity: menuOpened ? 0 : 1,
+
+            //   // make the avatar rotate when the menu is closed
+            //   rotateY: menuOpened ? 0 : Math.PI / 4,
+            // }}
+            initial={{
+              scale: 1,
+              intensity: 0,
+              rotateY: Math.PI / 4,
+            }}
+            animate={{
+              scale: menuOpened ? 2 : 1,
+              intensity: menuOpened ? 2 : 1,
+              // rotateY: menuOpened ? 0 : Math.PI / 4,
+            }}
+            transition={{
+              duration: 1,
+            }}
+          >
+            <Vishal animation={animation} />
+          </motion.group>
 
 
-        <ShreeRam />
-        <SeanSir position-x={1} />
-        <ShreeKrishna scale={0.06} position={[2.5, 0, -1.7]} />
+          <ShreeRam />
+          <SeanSir position-x={1} />
+          <ShreeKrishna scale={0.06} position={[2.5, 0, -1.7]} />
 
-        <mesh scale={8} rotation-x={-Math.PI / 2} position-y={-0.001} >
-          <planeBufferGeometry />
-          <meshBasicMaterial color="#cbcbcb" />
-        </mesh>
-        <Projects />
-      </group>
-
+          <mesh scale={8} rotation-x={-Math.PI / 2} position-y={-0.001} >
+            <planeBufferGeometry />
+            <meshBasicMaterial color="#cbcbcb" />
+          </mesh>
+          <Projects />
+        </group>
+      </Scroll>
     </>
   );
 };

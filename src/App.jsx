@@ -31,11 +31,9 @@ function App() {
           <color attach="background" args={["#ececec"]} />
           <ScrollControls pages={6} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
-            <Scroll>
-              <Suspense>
-                <Experience section={section} menuOpened={menuOpened} />
-              </Suspense>
-            </Scroll>
+            <Suspense>
+              <Experience section={section} menuOpened={menuOpened} />
+            </Suspense>
             <Scroll html>
               {started && <Interface started={started} setSection={setSection} />}
             </Scroll>
