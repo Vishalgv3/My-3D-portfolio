@@ -16,7 +16,7 @@ export function Background(props) {
                 material={materials['adelin-preda--tOr_T4qTpQ-unsplash']}
                 position={[0, 0, -4]}
                 rotation={[-Math.PI / 2, Math.PI / 1, Math.PI / 100]}
-                scale={25}
+                scale={35}
             />
         </group>
     )

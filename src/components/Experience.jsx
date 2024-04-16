@@ -16,6 +16,7 @@ import { useControls } from "leva";
 import { framerMotionConfig } from "../data/config";
 import { Background } from "./Other3D/Background";
 import { Projects } from "./Other3D/Project";
+import { DoubleSide } from "three";
 
 export const Experience = (props) => {
 
@@ -36,6 +37,7 @@ export const Experience = (props) => {
   // ----------------------- use Three
   const cameraPositionX = useMotionValue();
   const cameraLookAtX = useMotionValue();
+  const { viewport } = useThree();
 
 
   // ----------------------- use Effect
@@ -71,10 +73,16 @@ export const Experience = (props) => {
       <Background />
 
       <Scroll>
+        <Vishal animation={animation} />
 
-        <directionalLight intensity={1} position={[0, 5, 5]} />
+        <group position-y={-viewport.height * 3 + 2.5}>
 
-        <group position-y={-1}>
+          <group>
+            <directionalLight intensity={0.5} position={[-30, 5, 5]} />
+            <directionalLight intensity={0.7} position={[15, 2, 5]} />
+            <directionalLight intensity={0.5} position={[-18, 2, 5]} />
+          </group>
+
           <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
 
           <Mumum position-x={-3} />
@@ -107,20 +115,19 @@ export const Experience = (props) => {
               duration: 1,
             }}
           >
-            <Vishal animation={animation} />
           </motion.group>
 
 
-          <ShreeRam />
+          <ShreeRam position-y={0.05} />
           <SeanSir position-x={1} />
           <ShreeKrishna scale={0.06} position={[2.5, 0, -1.7]} />
 
           <mesh scale={8} rotation-x={-Math.PI / 2} position-y={-0.001} >
-            <planeBufferGeometry />
-            <meshBasicMaterial color="#cbcbcb" />
+            <planeGeometry />
+            <meshBasicMaterial side={DoubleSide} color="#cbcbcb" />
           </mesh>
-          <Projects />
         </group>
+        <Projects />
       </Scroll>
     </>
   );
