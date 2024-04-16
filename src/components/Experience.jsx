@@ -17,6 +17,7 @@ import { framerMotionConfig } from "../data/config";
 import { Background } from "./Other3D/Background";
 import { Projects } from "./Other3D/Project";
 import { DoubleSide } from "three";
+import { Html } from "./Skills/Html";
 
 export const Experience = (props) => {
 
@@ -74,6 +75,7 @@ export const Experience = (props) => {
 
       <Scroll>
         <Vishal animation={animation} />
+        <Html scale={0.3} rotation={[0, -Math.PI / 2, 0]} />
 
         <group position-y={-viewport.height * 3 + 2.5}>
 
