@@ -1,3 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  cursor: none !important;
+
+  &:hover {
+    cursor: none !important;
+  }
+
+}
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -8,7 +21,5 @@ body {
 }
 
 #leva__root>* {
-
-
   scale: 1;
 }
