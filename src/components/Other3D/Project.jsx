@@ -12,10 +12,10 @@ const Project = (props) => {
     const { project, highlighted } = props;
 
     const background = useRef();
-    const bgOpacity = useMotionValue(0.4);
+    const bgOpacity = useMotionValue(0.1);
 
     useEffect(() => {
-        animate(bgOpacity, highlighted ? 0.7 : 0.4);
+        animate(bgOpacity, highlighted ? 0.8 : 0.1);
     }, [highlighted]);
 
     useFrame(() => {
@@ -30,7 +30,7 @@ const Project = (props) => {
                 ref={background}
             >
                 <planeGeometry args={[2.2, 2]} />
-                <meshBasicMaterial color="black" transparent opacity={0.4} />
+                <meshBasicMaterial color="white" transparent opacity={0.4} />
             </mesh>
             <Image
                 scale={[2, 1.2, 1]}
@@ -39,20 +39,22 @@ const Project = (props) => {
                 position-y={0.3}
             />
             <Text
+                color={"black"}
                 maxWidth={2}
                 anchorX={"left"}
                 anchorY={"top"}
                 fontSize={0.2}
-                position={[-1, -0.4, 0]}
+                position={[-1, -0.4, 0.08]}
             >
                 {project.title.toUpperCase()}
             </Text>
             <Text
+                color={"black"}
                 maxWidth={2}
                 anchorX="left"
                 anchorY="top"
                 fontSize={0.1}
-                position={[-1, -0.6, 0]}
+                position={[-1, -0.6, 0.08]}
             >
                 {project.description}
             </Text>

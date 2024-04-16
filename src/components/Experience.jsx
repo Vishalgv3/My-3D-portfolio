@@ -16,7 +16,7 @@ import { framerMotionConfig } from "../data/config";
 import { Background } from "./Other3D/Background";
 import { Projects } from "./Other3D/Project";
 import { DoubleSide } from "three";
-import { Html } from "./Skills/Html";
+import { Skills } from "./Skills/Skills";
 
 export const Experience = (props) => {
 
@@ -67,15 +67,13 @@ export const Experience = (props) => {
 
       <group>
         <directionalLight intensity={0.5} position={[-30, 5, 5]} />
-        <directionalLight intensity={0.7} position={[15, 2, 5]} />
+        <directionalLight intensity={1} position={[15, 2, 5]} />
         <directionalLight intensity={0.5} position={[-18, 2, 5]} />
       </group>
 
       <Scroll>
 
         <Vishal position={[3, -1, 2]} rotation={[0, -0.41, 0]} />
-        <Html scale={0.3} rotation={[0, -Math.PI / 2, 0]} />
-
         <group position-y={-viewport.height * 3 + 2.5}>
 
           <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
@@ -113,7 +111,7 @@ export const Experience = (props) => {
           </motion.group>
 
 
-          <ShreeRam position-y={0.05} />
+          <ShreeRam position-y={0.05} position-x={-0.5} />
           <SeanSir position-x={1} />
           <ShreeKrishna scale={0.06} position-x={2.5} rotation={[0, -Math.PI / 2, 0]} />
 
@@ -122,6 +120,8 @@ export const Experience = (props) => {
             <meshBasicMaterial side={DoubleSide} color="#cbcbcb" />
           </mesh>
         </group>
+
+        <Skills />
         <Projects />
       </Scroll>
     </>

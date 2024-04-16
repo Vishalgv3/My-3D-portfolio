@@ -5,7 +5,7 @@ export const SkillsSection = (props) => {
 
         <Section>
             <h1 className={`text-6xl font-extrabold leading-snug text-white`}>
-                Skills
+                Technical Skills
             </h1>
         </Section>
     )
