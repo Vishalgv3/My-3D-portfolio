@@ -11,7 +11,6 @@ import { motion } from "framer-motion-3d";
 import { useEffect, useState } from "react";
 import { animate, useMotionValue } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useControls } from "leva";
 
 import { framerMotionConfig } from "../data/config";
 import { Background } from "./Other3D/Background";
@@ -26,14 +25,6 @@ export const Experience = (props) => {
 
   // ----------------------- State variables
   const [section, setSection] = useState(0);
-
-  // ----------------------- Leva User Controls
-  const { animation } = useControls({
-    animation: {
-      value: "IdleToSprint",
-      options: ["IdleToSprint", "Flying", "FallingToRoll", "JumpOver"],
-    }
-  });
 
   // ----------------------- use Three
   const cameraPositionX = useMotionValue();
