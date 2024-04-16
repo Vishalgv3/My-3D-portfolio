@@ -16,17 +16,17 @@ export function Vishal(props) {
     const group = useRef();
 
     // ---------------- animations
-    const { animations: IdleToSprint } = useFBX('3D/animations/Idle_To_Sprint.fbx');
-    const { animations: Flying } = useFBX('3D/animations/Flying.fbx');
-    const { animations: FallingToRoll } = useFBX('3D/animations/Falling_To_Roll.fbx');
-    const { animations: JumpOver } = useFBX('3D/animations/Jump_Over.fbx');
+    // const { animations: IdleToSprint } = useFBX('3D/animations/Idle_To_Sprint.fbx');
+    // const { animations: Flying } = useFBX('3D/animations/Flying.fbx');
+    // const { animations: FallingToRoll } = useFBX('3D/animations/Falling_To_Roll.fbx');
+    // const { animations: JumpOver } = useFBX('3D/animations/Jump_Over.fbx');
 
-    IdleToSprint[0].name = 'IdleToSprint';
-    Flying[0].name = 'Flying';
-    FallingToRoll[0].name = 'FallingToRoll';
-    JumpOver[0].name = 'JumpOver';
+    // IdleToSprint[0].name = 'IdleToSprint';
+    // Flying[0].name = 'Flying';
+    // FallingToRoll[0].name = 'FallingToRoll';
+    // JumpOver[0].name = 'JumpOver';
 
-    const { actions } = useAnimations([IdleToSprint[0], Flying[0], FallingToRoll[0], JumpOver[0]], group);
+    // const { actions } = useAnimations([IdleToSprint[0], Flying[0], FallingToRoll[0], JumpOver[0]], group);
 
     // ---------------- useEffect
     // useEffect(() => {
@@ -128,7 +128,4 @@ export function Vishal(props) {
 }
 
 useGLTF.preload('3D/models/vishal.glb');
-useGLTF.preload('3D/animations/Idle_To_Sprint.fbx');
-useGLTF.preload('3D/animations/Flying.fbx');
 useGLTF.preload('3D/animations/Falling_To_Roll.fbx');
-useGLTF.preload('3D/animations/Jump_Over.fbx');
