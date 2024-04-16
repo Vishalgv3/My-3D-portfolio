@@ -73,7 +73,7 @@ export const Experience = (props) => {
 
       <Scroll>
 
-        <Vishal animation={animation} position={[3, -1, 2]} rotation={[0, -0.41, 0]} />
+        <Vishal position={[3, -1, 2]} rotation={[0, -0.41, 0]} />
         <Html scale={0.3} rotation={[0, -Math.PI / 2, 0]} />
 
         <group position-y={-viewport.height * 3 + 2.5}>
