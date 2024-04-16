@@ -71,19 +71,21 @@ export const Experience = (props) => {
 
   return (
     <>
+      {/* <Sky sunPosition={[100, 10, 100]} /> */}
       <Background />
 
+      <group>
+        <directionalLight intensity={0.5} position={[-30, 5, 5]} />
+        <directionalLight intensity={0.7} position={[15, 2, 5]} />
+        <directionalLight intensity={0.5} position={[-18, 2, 5]} />
+      </group>
+
       <Scroll>
-        <Vishal animation={animation} />
+
+        <Vishal animation={animation} position={[3, -1, 2]} rotation={[0, -0.41, 0]} />
         <Html scale={0.3} rotation={[0, -Math.PI / 2, 0]} />
 
         <group position-y={-viewport.height * 3 + 2.5}>
-
-          <group>
-            <directionalLight intensity={0.5} position={[-30, 5, 5]} />
-            <directionalLight intensity={0.7} position={[15, 2, 5]} />
-            <directionalLight intensity={0.5} position={[-18, 2, 5]} />
-          </group>
 
           <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
 
