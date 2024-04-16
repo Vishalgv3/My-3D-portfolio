@@ -15,7 +15,7 @@ export const HomeSection = (props) => {
 
         <Section>
             <h1 className="text-6xl font-extrabold text-white leading-snug">
-                Hi, I'm
+                Hi traveller, I'm
                 <br />
                 <span className="bg-white rounded px-1 italic text-black">Vishal Chaudhari</span>
                 <motion.p className="text-lg text-white-600 mt-4"

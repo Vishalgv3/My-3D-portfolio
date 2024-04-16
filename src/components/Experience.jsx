@@ -120,7 +120,7 @@ export const Experience = (props) => {
 
           <ShreeRam position-y={0.05} />
           <SeanSir position-x={1} />
-          <ShreeKrishna scale={0.06} position={[2.5, 0, -1.7]} />
+          <ShreeKrishna scale={0.06} position-x={2.5} rotation={[0, -Math.PI / 2, 0]} />
 
           <mesh scale={8} rotation-x={-Math.PI / 2} position-y={-0.001} >
             <planeGeometry />

@@ -29,14 +29,14 @@ export function Vishal(props) {
     const { actions } = useAnimations([IdleToSprint[0], Flying[0], FallingToRoll[0], JumpOver[0]], group);
 
     // ---------------- useEffect
-    useEffect(() => {
-        actions[animation].reset().fadeIn(1).play();
-        return () => actions[animation].reset().fadeOut(1);
-    }, [animation]);
+    // useEffect(() => {
+    //     actions[animation].reset().fadeIn(1).play();
+    //     return () => actions[animation].reset().fadeOut(1);
+    // }, [animation]);
 
     return (
         <group {...props} ref={group} dispose={null}>
-            <group rotation={[-Math.PI / 2, 0, 0]} frustumCulled={false}>
+            <group rotation={[0, 0, 0]} frustumCulled={false}>
                 <primitive object={nodes.Hips} />
                 <skinnedMesh
                     frustumCulled={false}
