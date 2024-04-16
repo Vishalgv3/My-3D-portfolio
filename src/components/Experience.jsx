@@ -8,7 +8,7 @@ import { Mumum } from "./Avatars/Mumum";
 // import { Projects } from "./Other3D/Project";
 
 import { motion } from "framer-motion-3d";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { animate, useMotionValue } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
 
@@ -17,19 +17,29 @@ import { Background } from "./Other3D/Background";
 import { Projects } from "./Other3D/Project";
 import { DoubleSide } from "three";
 import { Skills } from "./Skills/Skills";
+import { GamingChair } from "./Other3D/GamingChair";
 
 export const Experience = (props) => {
 
   const { menuOpened } = props;
   const data = useScroll();
 
-  // ----------------------- State variables
-  const [section, setSection] = useState(0);
-
   // ----------------------- use Three
   const cameraPositionX = useMotionValue();
   const cameraLookAtX = useMotionValue();
   const { viewport } = useThree();
+
+  const characterContainerAboutRef = useRef();
+
+  // --------------------------------- State variables
+  const [section, setSection] = useState(0);
+  const [characterAnimation, setCharacterAnimation] = useState("Typing");
+  useEffect(() => {
+    setCharacterAnimation("Falling");
+    setTimeout(() => {
+      setCharacterAnimation(section === 0 ? "Typing" : "Standing");
+    }, 600);
+  }, [section]);
 
 
   // ----------------------- use Effect
@@ -73,7 +83,19 @@ export const Experience = (props) => {
 
       <Scroll>
 
-        <Vishal position={[3, -1, 2]} rotation={[0, -0.41, 0]} />
+        <group>
+          <Vishal scale={2} position={[3, -2, 2]} rotation={[0.05, -0.41, 0]} />
+        </group>
+
+        {/* <group position-y={-viewport.height * 2 + 2.5}>
+          <Vishal position={[0, 0.1, 0]} rotation={[0, 0, 0]} />
+          <GamingChair scale={0.022} position={[0, 0, 0]} rotation={[0, 0, 0]} />
+          <mesh scale={4} rotation-x={-Math.PI / 2} position-y={0} >
+            <planeGeometry />
+            <meshBasicMaterial side={DoubleSide} color="#cbcbcb" />
+          </mesh>
+        </group> */}
+
         <group position-y={-viewport.height * 3 + 2.5}>
 
           <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
