@@ -163,6 +163,19 @@ export const Experience = (props) => {
             <Vishal animation={characterAnimation} />
           </motion.group>
 
+          {/* HOME page's box and plane */}
+          <group position-y={-2.3} position={[0, -2.3, 1.5]} >
+            <mesh scale={[0.8, 0.88, 0.8]} position={[2.2, 0.7, 1.3]} rotation-y={-0.3} >
+              <boxGeometry />
+              <meshToonMaterial color="#373c4b" />
+            </mesh>
+            <mesh scale={5} rotation={[-Math.PI / 2, 0, -0.2]} position-x={3} position-y={0.25} >
+              <planeGeometry />
+              <meshToonMaterial side={DoubleSide} color="#ffffff" />
+            </mesh>
+          </group>
+
+          {/* ABOUT ME section's box and plane */}
           <group position-y={-viewport.height * 1 - 2.5}>
             <mesh scale={[0.8, 0.85, 0.8]} position={[3.2, 0.43, 0.5]} rotation-y={-0.3} >
               <boxGeometry />
@@ -174,8 +187,8 @@ export const Experience = (props) => {
             </mesh>
           </group>
 
+          {/* SOME TEACHERS OF MY LIFE section */}
           <group position-y={-viewport.height * 3 + 3}>
-
             <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
 
             <Mumum position-x={-3} />
@@ -192,7 +205,10 @@ export const Experience = (props) => {
           </group>
 
           <Skills />
+
           <Projects />
+
+          {/* CONTACT ME section's box and plane */}
           <group position-y={-viewport.height * 5 - 2.5}>
             <mesh scale={[3, 2, 2]} position={[3.3, 0.5, -1]} rotation-y={-0.3} >
               <boxGeometry />
