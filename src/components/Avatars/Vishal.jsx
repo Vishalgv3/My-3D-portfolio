@@ -138,4 +138,3 @@ export function Vishal(props) {
 }
 
 useGLTF.preload('3D/models/vishal.glb');
-useGLTF.preload('3D/animations/Falling_To_Roll.fbx');
