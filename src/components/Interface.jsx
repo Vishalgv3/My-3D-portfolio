@@ -12,7 +12,7 @@ export const Interface = (props) => {
 
     return (
         <>
-            <div className="flex flex-col items-center w-screen">
+            <div className="flex flex-col items-center w-screen select-none">
                 <HomeSection setSection={setSection} />
                 <AboutSection />
                 <TeachersSection />
