@@ -27,7 +27,11 @@ export const Experience = (props) => {
   const cameraLookAtX = useMotionValue();
   const { viewport } = useThree();
 
-  const characterContainerAboutRef = useRef();
+  // ----------------------- use Ref
+  const parentsMaterialRef = useRef();
+  const shreeRamMaterialRef = useRef();
+  const seanSirMaterialRef = useRef();
+  const shreeKrishnaMaterialRef = useRef();
 
   // --------------------------------- State variables
   const [section, setSection] = useState(0);
@@ -133,6 +137,24 @@ export const Experience = (props) => {
     setTeacherClicked(true);
   }
 
+  const onShreeRamClicked = (e) => {
+    e.stopPropagation();
+    setTeacher("Shree Ram");
+    setTeacherClicked(true);
+  }
+
+  const onSeanSirClicked = (e) => {
+    e.stopPropagation();
+    setTeacher("Sir Sean Morrow");
+    setTeacherClicked(true);
+  }
+
+  const onShreeKrishnaClicked = (e) => {
+    e.stopPropagation();
+    setTeacher("Shree Krishna");
+    setTeacherClicked(true);
+  }
+
   return (
     <>
       <MotionConfig
@@ -196,22 +218,53 @@ export const Experience = (props) => {
 
           {/* SOME TEACHERS OF MY LIFE section */}
           <group position-y={-viewport.height * 3 + 3}>
-            <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
+            {/* <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" /> */}
 
             <group>
-              <mesh scale={1.1} position={[-2.3, 0.8, 0]}
+              <mesh scale={[0.85, 1.5, 0.8]} position={[-2.3, 0.8, 0]}
+                onPointerEnter={(e) => parentsMaterialRef.current.opacity = 0.2}
+                onPointerLeave={(e) => parentsMaterialRef.current.opacity = 0}
                 onClick={onParentsClicked}>
                 <sphereGeometry />
-                <meshToonMaterial transparent={true} side={DoubleSide} color="#e3ba36" />
+                <meshToonMaterial ref={parentsMaterialRef} transparent={true} color="#e3ba36" opacity={0} />
               </mesh>
 
               <Papa position-x={-2.6} />
               <Mumum position-x={-2} />
             </group>
 
-            <ShreeRam position-y={0.05} position-x={-0.5} />
-            <SeanSir position-x={1} />
-            <ShreeKrishna scale={0.06} position-x={2.5} rotation={[0, -Math.PI / 2, 0]} />
+            <group>
+              <mesh scale={[0.7, 1.5, 1]} position={[-0.5, 0.8, 0.5]}
+                onPointerEnter={(e) => shreeRamMaterialRef.current.opacity = 0.2}
+                onPointerLeave={(e) => shreeRamMaterialRef.current.opacity = 0}
+                onClick={onShreeRamClicked}>
+                <sphereGeometry />
+                <meshToonMaterial ref={shreeRamMaterialRef} transparent={true} color="#e3ba36" opacity={0} />
+              </mesh>
+              <ShreeRam position-y={0.05} position-x={-0.5} />
+            </group>
+
+            <group>
+              <mesh scale={[0.7, 1.5, 1]} position={[1, 0.8, 0.3]}
+                onPointerEnter={(e) => seanSirMaterialRef.current.opacity = 0.2}
+                onPointerLeave={(e) => seanSirMaterialRef.current.opacity = 0}
+                onClick={onSeanSirClicked}>
+                <sphereGeometry />
+                <meshToonMaterial ref={seanSirMaterialRef} transparent={true} color="#e3ba36" opacity={0} />
+              </mesh>
+              <SeanSir position-x={1} />
+            </group>
+
+            <group>
+              <mesh scale={[0.7, 1.5, 1]} position={[2.4, 0.8, 0]}
+                onPointerEnter={(e) => shreeKrishnaMaterialRef.current.opacity = 0.2}
+                onPointerLeave={(e) => shreeKrishnaMaterialRef.current.opacity = 0}
+                onClick={onShreeKrishnaClicked}>
+                <sphereGeometry />
+                <meshToonMaterial ref={shreeKrishnaMaterialRef} transparent={true} color="#e3ba36" opacity={0} />
+              </mesh>
+              <ShreeKrishna scale={0.06} position-x={2.5} rotation={[0, -Math.PI / 2, 0]} />
+            </group>
 
             <mesh scale={8} rotation-x={-Math.PI / 2} position-y={-0.001} >
               <planeGeometry />
@@ -219,8 +272,10 @@ export const Experience = (props) => {
             </mesh>
           </group>
 
+          {/* SKILLS section*/}
           <Skills />
 
+          {/* PROJECTS section */}
           <Projects />
 
           {/* CONTACT ME section's box and plane */}

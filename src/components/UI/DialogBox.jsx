@@ -1,10 +1,30 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment, useEffect, useState } from 'react';
+
+import { teacherData } from '../../data/teacherData';
 
 export function DialogBox(props) {
 
+    // ---------------- props
     const { teacherClicked, setTeacherClicked, teacher } = props;
 
+    // ---------------- state variables
+    const [teachings, setTeachings] = useState(null);
+
+    // ---------------- useEffect
+    useEffect(() => {
+        if (teacher === "My Parents") {
+            setTeachings(teacherData.myParents.teachings);
+        } else if (teacher === "Shree Ram") {
+            setTeachings(teacherData.shreeRam.teachings);
+        } else if (teacher === "Shree Krishna") {
+            setTeachings(teacherData.shreeKrishna.teachings);
+        } else if (teacher === "Sir Sean Morrow") {
+            setTeachings(teacherData.sirSeanMorrow.teachings);
+        }
+    }, [teacher]);
+
+    // ---------------- event handlers
     function closeModal() {
         setTeacherClicked(false);
     }
@@ -45,8 +65,7 @@ export function DialogBox(props) {
                                     </Dialog.Title>
                                     <div className="mt-2 font-semibold text-sm eading-normal">
                                         <p>
-                                            Your payment has been successfully submitted. We've sent
-                                            you an email with all of the details of your order.
+                                            {teachings}
                                         </p>
                                     </div>
 
