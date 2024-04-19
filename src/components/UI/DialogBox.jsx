@@ -64,9 +64,7 @@ export function DialogBox(props) {
                                         {teacher}
                                     </Dialog.Title>
                                     <div className="mt-2 font-semibold text-sm eading-normal">
-                                        <p>
-                                            {teachings}
-                                        </p>
+                                        <div dangerouslySetInnerHTML={{ __html: teachings }} />
                                     </div>
 
                                     <div className="mt-4">
@@ -83,7 +81,7 @@ export function DialogBox(props) {
                         </div>
                     </div>
                 </Dialog>
-            </Transition>
+            </Transition >
         </>
     )
 }
