@@ -10,8 +10,6 @@ import { framerMotionConfig } from "../../data/config";
 export function Mumum(props) {
     const { nodes, materials } = useGLTF('3D/models/mumum.glb');
 
-    console.log(materials);
-
     // ---------------- use refs
     const ref = useRef();
 

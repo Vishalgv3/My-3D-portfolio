@@ -3,12 +3,12 @@ import { Experience } from "./components/Experience";
 import { Scroll, ScrollControls } from "@react-three/drei";
 import { Interface } from "./components/Interface";
 import { Suspense, useEffect, useState } from "react";
-import { ScrollManager } from "./components/ScrollManager";
-import { Menu } from "./components/Menu";
+import { ScrollManager } from "./components/UI/ScrollManager";
+import { Menu } from "./components/UI/Menu";
 import { MotionConfig } from "framer-motion";
 
 import { framerMotionConfig } from "./data/config";
-import { Cursor } from "./components/Cursor";
+import { Cursor } from "./components/UI/Cursor";
 import { LoadingOverlay } from "./components/UI/LoadingOverlay";
 import { DialogBox } from "./components/UI/DialogBox";
 
