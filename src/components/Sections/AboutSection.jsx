@@ -41,17 +41,17 @@ export const AboutSection = () => {
                         <div className="flex flex-wrap mx-3">
                             <div className="flex-none max-w-full px-3">
                                 <div>
-                                    <p className="mb-0 font-sans max-w-md font-semibold leading-normal text-sm">I am orginally from Gandhinagar, Gujarat, India. I'm currently enrolled in a diploma program called "IT Web Programming" specializing in full stack web development at NSCC in Truro, NS, Canada.
-                                        <br />
-                                        <br />
-                                        I came to Canada in June, 2022 right after completing my high school in India. So, I didn't even have any programming experience. Heck, I didn't even have a laptop until I came to Canada.
-                                        <br />
-                                        <br />
-                                        But here we are now, I have learned so much in the past year and a half with utmost details, and all the credit goes to a special guy who has been my teacher, mentor, and friend. He has taught me everything I know about programming and web development.
-                                        <br />
-                                        <br />
+                                    <div className="mb-0 font-sans max-w-md font-semibold leading-normal text-sm">
+                                        <p className="mb-5">I am orginally from Gandhinagar, Gujarat, India. I'm currently enrolled in a diploma program called "IT Web Programming" specializing in full stack web development at NSCC in Truro, NS, Canada.
+                                        </p>
+                                        <p className="mb-5">
+                                            I came to Canada in June, 2022 right after completing my high school in India. So, I didn't have any programming experience. Heck, I didn't even have a laptop until I came to Canada!
+                                        </p>
+                                        <p className="mb-5">
+                                            But here we are now, I have learned so much in the past two years with utmost details, and all the credit goes to a special guy who has been my teacher, mentor, and friend. He has taught me everything I know about programming and web development.
+                                        </p>
                                         Scroll to learn more...
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
