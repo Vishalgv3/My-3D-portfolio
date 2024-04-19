@@ -32,7 +32,7 @@ export const AboutSection = () => {
             */}
 
             <Section>
-                <div className={`text-6xl font-extrabold leading-snug text-white`}>
+                <div className={`text-6xl font-extrabold leading-snug text-white mb-4`}>
                     ABOUT ME
                 </div>
 
@@ -41,7 +41,7 @@ export const AboutSection = () => {
                         <div className="flex flex-wrap mx-3">
                             <div className="flex-none max-w-full px-3">
                                 <div>
-                                    <p className="mb-0 font-sans max-w-2xl font-semibold leading-normal text-sm">I am orginally from Gandhinagar, Gujarat, India. I'm currently enrolled in a diploma program called "IT Web Programming" specializing in full stack web development at NSCC in Truro, NS, Canada.
+                                    <p className="mb-0 font-sans max-w-md font-semibold leading-normal text-sm">I am orginally from Gandhinagar, Gujarat, India. I'm currently enrolled in a diploma program called "IT Web Programming" specializing in full stack web development at NSCC in Truro, NS, Canada.
                                         <br />
                                         <br />
                                         I came to Canada in June, 2022 right after completing my high school in India. So, I didn't even have any programming experience. Heck, I didn't even have a laptop until I came to Canada.

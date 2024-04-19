@@ -16,27 +16,37 @@ export function Vishal(props) {
     const group = useRef();
 
     // ---------------- animations
-    // const { animations: IdleToSprint } = useFBX('3D/animations/Idle_To_Sprint.fbx');
-    // const { animations: Flying } = useFBX('3D/animations/Flying.fbx');
-    // const { animations: FallingToRoll } = useFBX('3D/animations/Falling_To_Roll.fbx');
-    // const { animations: JumpOver } = useFBX('3D/animations/Jump_Over.fbx');
+    const { animations: Kneeling } = useFBX('3D/animations/Kneeling.fbx');
+    const { animations: FallDown } = useFBX('3D/animations/Fall_Down.fbx');
+    const { animations: FallStraight } = useFBX('3D/animations/Fall_Straight.fbx');
+    const { animations: LeanStand } = useFBX('3D/animations/Lean_stand.fbx');
+    const { animations: LeanThinking } = useFBX('3D/animations/Lean_Thinking.fbx');
+    const { animations: SitStraight } = useFBX('3D/animations/Sit_straight.fbx');
+    const { animations: SitTired } = useFBX('3D/animations/Sit_tired.fbx');
+    const { animations: Laying } = useFBX('3D/animations/Laying.fbx');
 
-    // IdleToSprint[0].name = 'IdleToSprint';
-    // Flying[0].name = 'Flying';
-    // FallingToRoll[0].name = 'FallingToRoll';
-    // JumpOver[0].name = 'JumpOver';
+    Kneeling[0].name = 'Kneeling';
+    FallDown[0].name = 'FallDown';
+    FallStraight[0].name = 'FallStraight';
+    LeanStand[0].name = 'LeanStand';
+    LeanThinking[0].name = 'LeanThinking';
+    SitStraight[0].name = 'SitStraight';
+    SitTired[0].name = 'SitTired';
+    Laying[0].name = 'Laying';
 
-    // const { actions } = useAnimations([IdleToSprint[0], Flying[0], FallingToRoll[0], JumpOver[0]], group);
+    const { actions } = useAnimations([Kneeling[0], FallStraight[0], FallDown[0], LeanStand[0], LeanThinking[0], SitStraight[0], SitTired[0], Laying[0]], group);
 
     // ---------------- useEffect
-    // useEffect(() => {
-    //     actions[animation].reset().fadeIn(1).play();
-    //     return () => actions[animation].reset().fadeOut(1);
-    // }, [animation]);
+    useEffect(() => {
+        group.current.rotation.x = -Math.PI / 2;
+
+        actions[animation].reset().fadeIn(0.5).play();
+        return () => actions[animation].reset().fadeOut(0.5);
+    }, [animation]);
 
     return (
         <group {...props} ref={group} dispose={null}>
-            <group rotation={[0, 0, 0]} frustumCulled={false}>
+            <group rotation={[0, 0, -0.4]} frustumCulled={false}>
                 <primitive object={nodes.Hips} />
                 <skinnedMesh
                     frustumCulled={false}

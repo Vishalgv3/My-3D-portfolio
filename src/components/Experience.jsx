@@ -5,19 +5,17 @@ import { ShreeKrishna } from "./Avatars/ShreeKrishna";
 import { SeanSir } from "./Avatars/SeanSir";
 import { Papa } from "./Avatars/Papa";
 import { Mumum } from "./Avatars/Mumum";
-// import { Projects } from "./Other3D/Project";
+import { Background } from "./Other3D/Background";
+import { Projects } from "./Other3D/Project";
+import { Skills } from "./Skills/Skills";
 
 import { motion } from "framer-motion-3d";
 import { useEffect, useRef, useState } from "react";
-import { animate, useMotionValue } from "framer-motion";
+import { MotionConfig, animate, useMotionValue } from "framer-motion";
 import { useFrame, useThree } from "@react-three/fiber";
+import { DoubleSide } from "three";
 
 import { framerMotionConfig } from "../data/config";
-import { Background } from "./Other3D/Background";
-import { Projects } from "./Other3D/Project";
-import { DoubleSide } from "three";
-import { Skills } from "./Skills/Skills";
-import { GamingChair } from "./Other3D/GamingChair";
 
 export const Experience = (props) => {
 
@@ -33,16 +31,73 @@ export const Experience = (props) => {
 
   // --------------------------------- State variables
   const [section, setSection] = useState(0);
-  const [characterAnimation, setCharacterAnimation] = useState("Typing");
-  useEffect(() => {
-    setCharacterAnimation("Falling");
-    setTimeout(() => {
-      setCharacterAnimation(section === 0 ? "Typing" : "Standing");
-    }, 600);
-  }, [section]);
-
+  const [actualSection, setActualSection] = useState(0);
+  const [characterAnimation, setCharacterAnimation] = useState("Kneeling");
+  const [vishalPositionX, setVishalPositionX] = useState(0);
+  const [vishalPositionY, setVishalPositionY] = useState(0);
+  const [vishalPositionZ, setVishalPositionZ] = useState(0);
 
   // ----------------------- use Effect
+  useEffect(() => {
+
+    actualSection < 5.5 && setCharacterAnimation("FallDown");
+
+    let x = 0;
+    let y = 0;
+    let z = 0;
+    let animation;
+
+    // ----------------------- set position based on switch case
+    switch (actualSection) {
+      case 0:
+        x = 3;
+        y = -2;
+        z = 2;
+        animation = "LeanThinking";
+        break;
+      case 1:
+        x = 4;
+        y = -viewport.height * 1 - 2.46;
+        z = 0;
+        animation = "LeanStand";
+        break;
+      case 2:
+        x = -3;
+        y = -viewport.height * 2.5 - 0.85;
+        z = 3;
+        animation = "Kneeling";
+        break;
+      case 3:
+        x = 0;
+        y = -viewport.height * 3 - 1;
+        z = 0;
+        animation = "Laying";
+        break;
+      case 4:
+        x = -5;
+        y = -viewport.height * 4 - 3;
+        z = -2;
+        animation = "FallStraight";
+        break;
+      default:
+        x = 3;
+        y = -viewport.height * 5 - 2;
+        z = 0;
+        animation = "SitStraight";
+    }
+
+
+    // ----------------------- set character animation
+    setTimeout(() => {
+      setCharacterAnimation(animation);
+    }, 600);
+
+    // ----------------------- set character position
+    setVishalPositionX(x);
+    setVishalPositionY(y);
+    setVishalPositionZ(z);
+  }, [actualSection]);
+
   useEffect(() => {
     animate(cameraPositionX, menuOpened ? -5 : 0, { ...framerMotionConfig });
     animate(cameraLookAtX, menuOpened ? 5 : 0, { ...framerMotionConfig });
@@ -51,6 +106,7 @@ export const Experience = (props) => {
   // ----------------------- use Frame
   useFrame((state) => {
     let curSection = Math.floor(data.scroll.current * data.pages);
+    setActualSection(curSection);
 
     if (curSection < 0) curSection = 0;
 
@@ -72,80 +128,83 @@ export const Experience = (props) => {
 
   return (
     <>
-      {/* <Sky sunPosition={[100, 10, 100]} /> */}
-      <Background />
-
-      <group>
-        <directionalLight intensity={0.5} position={[-30, 5, 5]} />
-        <directionalLight intensity={1} position={[15, 2, 5]} />
-        <directionalLight intensity={0.5} position={[-18, 2, 5]} />
-      </group>
-
-      <Scroll>
+      <MotionConfig
+        transition={{
+          ...framerMotionConfig,
+        }}
+      >
+        <Background />
 
         <group>
-          <Vishal scale={2} position={[3, -2, 2]} rotation={[0.05, -0.41, 0]} />
+          <directionalLight intensity={0.5} position={[-30, 5, 5]} />
+          <directionalLight intensity={1} position={[15, 2, 5]} />
+          <directionalLight intensity={0.5} position={[-18, 2, 5]} />
         </group>
 
-        {/* <group position-y={-viewport.height * 2 + 2.5}>
-          <Vishal position={[0, 0.1, 0]} rotation={[0, 0, 0]} />
-          <GamingChair scale={0.022} position={[0, 0, 0]} rotation={[0, 0, 0]} />
-          <mesh scale={4} rotation-x={-Math.PI / 2} position-y={0} >
-            <planeGeometry />
-            <meshBasicMaterial side={DoubleSide} color="#cbcbcb" />
-          </mesh>
-        </group> */}
+        <Scroll>
 
-        <group position-y={-viewport.height * 3 + 2.5}>
-
-          <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
-
-          <Mumum position-x={-3} />
-          <Papa position-x={-2} />
-
-          <motion.group position-x={-1} rotateY={Math.PI / 2}
-            // animate={{
-            //   // rotateY: section === 0 ? 0 : Math.PI / 2,
-
-            //   // make the avatar disappear when the menu is opened
-            //   scale: menuOpened ? 0 : 1,
-
-            //   // make the avatar emit red light when the menu is closed
-            //   intensity: menuOpened ? 0 : 1,
-
-            //   // make the avatar rotate when the menu is closed
-            //   rotateY: menuOpened ? 0 : Math.PI / 4,
-            // }}
+          <motion.group
             initial={{
-              scale: 1,
-              intensity: 0,
-              rotateY: Math.PI / 4,
+              scale: 2,
             }}
             animate={{
-              scale: menuOpened ? 2 : 1,
-              intensity: menuOpened ? 2 : 1,
-              // rotateY: menuOpened ? 0 : Math.PI / 4,
+              x: vishalPositionX,
+              y: vishalPositionY,
+              z: vishalPositionZ,
+              scale: actualSection === 2 ? 0.5 : 2,
+              rotateY: actualSection === 2 ? 3 : 0,
+              rotateX: actualSection === 3 ? -0.2 : 0,
+              rotateZ: actualSection === 3 ? -0.1 : 0,
             }}
             transition={{
               duration: 1,
             }}
           >
+            <Vishal animation={characterAnimation} />
           </motion.group>
 
+          <group position-y={-viewport.height * 1 - 2.5}>
+            <mesh scale={[0.8, 0.85, 0.8]} position={[3.2, 0.43, 0.5]} rotation-y={-0.3} >
+              <boxGeometry />
+              <meshToonMaterial color="#373c4b" />
+            </mesh>
+            <mesh scale={5} rotation={[-Math.PI / 2, 0, -0.2]} position-x={3} >
+              <planeGeometry />
+              <meshToonMaterial side={DoubleSide} color="#ffffff" />
+            </mesh>
+          </group>
 
-          <ShreeRam position-y={0.05} position-x={-0.5} />
-          <SeanSir position-x={1} />
-          <ShreeKrishna scale={0.06} position-x={2.5} rotation={[0, -Math.PI / 2, 0]} />
+          <group position-y={-viewport.height * 3 + 3}>
 
-          <mesh scale={8} rotation-x={-Math.PI / 2} position-y={-0.001} >
-            <planeGeometry />
-            <meshBasicMaterial side={DoubleSide} color="#cbcbcb" />
-          </mesh>
-        </group>
+            <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
 
-        <Skills />
-        <Projects />
-      </Scroll>
+            <Mumum position-x={-3} />
+            <Papa position-x={-2} />
+
+            <ShreeRam position-y={0.05} position-x={-0.5} />
+            <SeanSir position-x={1} />
+            <ShreeKrishna scale={0.06} position-x={2.5} rotation={[0, -Math.PI / 2, 0]} />
+
+            <mesh scale={8} rotation-x={-Math.PI / 2} position-y={-0.001} >
+              <planeGeometry />
+              <meshToonMaterial side={DoubleSide} color="#cbcbcb" />
+            </mesh>
+          </group>
+
+          <Skills />
+          <Projects />
+          <group position-y={-viewport.height * 5 - 2.5}>
+            <mesh scale={[3, 2, 2]} position={[3.3, 0.5, -1]} rotation-y={-0.3} >
+              <boxGeometry />
+              <meshToonMaterial color="#373c4b" />
+            </mesh>
+            <mesh scale={5} rotation={[-Math.PI / 2, 0, -0.2]} position-x={3} >
+              <planeGeometry />
+              <meshToonMaterial side={DoubleSide} color="#ffffff" />
+            </mesh>
+          </group>
+        </Scroll >
+      </MotionConfig>
     </>
   );
 };
