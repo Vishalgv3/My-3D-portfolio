@@ -19,7 +19,7 @@ import { framerMotionConfig } from "../data/config";
 
 export const Experience = (props) => {
 
-  const { menuOpened } = props;
+  const { menuOpened, setTeacherClicked, setTeacher } = props;
   const data = useScroll();
 
   // ----------------------- use Three
@@ -126,6 +126,13 @@ export const Experience = (props) => {
     state.camera.lookAt(cameraLookAtX.get(), 0, 0);
   })
 
+  // --------------------------------- event handlers
+  const onParentsClicked = (e) => {
+    e.stopPropagation();
+    setTeacher("My Parents");
+    setTeacherClicked(true);
+  }
+
   return (
     <>
       <MotionConfig
@@ -191,8 +198,16 @@ export const Experience = (props) => {
           <group position-y={-viewport.height * 3 + 3}>
             <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
 
-            <Papa position-x={-2.6} />
-            <Mumum position-x={-2} />
+            <group>
+              <mesh scale={1.1} position={[-2.3, 0.8, 0]}
+                onClick={onParentsClicked}>
+                <sphereGeometry />
+                <meshToonMaterial transparent={true} side={DoubleSide} color="#e3ba36" />
+              </mesh>
+
+              <Papa position-x={-2.6} />
+              <Mumum position-x={-2} />
+            </group>
 
             <ShreeRam position-y={0.05} position-x={-0.5} />
             <SeanSir position-x={1} />
@@ -220,7 +235,7 @@ export const Experience = (props) => {
             </mesh>
           </group>
         </Scroll >
-      </MotionConfig>
+      </MotionConfig >
     </>
   );
 };

@@ -10,6 +10,7 @@ import { MotionConfig } from "framer-motion";
 import { framerMotionConfig } from "./data/config";
 import { Cursor } from "./components/Cursor";
 import { LoadingOverlay } from "./components/UI/LoadingOverlay";
+import { DialogBox } from "./components/UI/DialogBox";
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
   const [started, setStarted] = useState(false);
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
+  const [teacherClicked, setTeacherClicked] = useState(false);
+  const [teacher, setTeacher] = useState("");
 
   // ------------- use Effect
   useEffect(() => {
@@ -26,13 +29,16 @@ function App() {
   return (
     <>
       <LoadingOverlay started={started} setStarted={setStarted} />
+
+      <DialogBox teacherClicked={teacherClicked} setTeacherClicked={setTeacherClicked} teacher={teacher} />
+
       <MotionConfig transition={{ ...framerMotionConfig }}>
         <Canvas shadows camera={{ position: [0, 0, 10], fov: 42 }}>
           <color attach="background" args={["#ececec"]} />
           <ScrollControls pages={6} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
             <Suspense>
-              <Experience section={section} menuOpened={menuOpened} />
+              <Experience section={section} menuOpened={menuOpened} setTeacherClicked={setTeacherClicked} setTeacher={setTeacher} />
             </Suspense>
             <Scroll html>
               {started && <Interface started={started} setSection={setSection} />}

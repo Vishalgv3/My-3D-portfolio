@@ -11,6 +11,7 @@
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "@gsap/react": "^2.1.0",
+    "@headlessui/react": "^1.7.19",
     "@react-three/drei": "^9.75.0",
     "@react-three/fiber": "^8.13.3",
     "@studio-freight/lenis": "^1.0.42",
