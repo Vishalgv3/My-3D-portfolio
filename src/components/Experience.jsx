@@ -191,8 +191,8 @@ export const Experience = (props) => {
           <group position-y={-viewport.height * 3 + 3}>
             <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" />
 
-            <Mumum position-x={-3} />
-            <Papa position-x={-2} />
+            <Papa position-x={-2.6} />
+            <Mumum position-x={-2} />
 
             <ShreeRam position-y={0.05} position-x={-0.5} />
             <SeanSir position-x={1} />
