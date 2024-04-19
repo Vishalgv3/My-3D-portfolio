@@ -60,7 +60,7 @@ const Project = (props) => {
     );
 };
 
-export const currentProjectAtom = atom(Math.floor(projects.length / 2));
+export const currentProjectAtom = atom(Math.floor(projects.length / 6));
 
 export const Projects = () => {
     const { viewport } = useThree();
