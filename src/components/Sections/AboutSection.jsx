@@ -36,9 +36,9 @@ export const AboutSection = () => {
                     ABOUT ME
                 </div>
 
-                <div className="relative flex flex-col min-w-0 mb-6 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+                <div className="relative flex flex-col min-w-0 mb-6 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border max-w-64 sm:max-w-fit">
                     <div className="flex-auto p-4">
-                        <div className="flex flex-wrap mx-3">
+                        <div className="flex flex-wrap mx-0 md:mx-3">
                             <div className="flex-none max-w-full px-3">
                                 <div>
                                     <div className="mb-0 font-sans max-w-md font-semibold leading-normal text-sm">
