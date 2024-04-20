@@ -103,4 +103,5 @@ export function Papa(props) {
     )
 }
 
-useGLTF.preload('3D/models/papa.glb')
+useGLTF.preload('3D/models/papa.glb');
+useGLTF.preload('3D/animations/Papa_Pose_2.fbx');

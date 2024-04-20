@@ -106,4 +106,5 @@ export function Mumum(props) {
     )
 }
 
-useGLTF.preload('3D/models/mumum.glb')
+useGLTF.preload('3D/models/mumum.glb');
+useGLTF.preload('3D/animations/Mumum_Pose.fbx');
