@@ -32,7 +32,7 @@ export const AboutSection = () => {
             */}
 
             <Section>
-                <div className={`text-6xl font-extrabold leading-snug text-white mb-4`}>
+                <div className={`text-3xl md:text-5xl font-extrabold leading-snug text-white mb-4`}>
                     ABOUT ME
                 </div>
 

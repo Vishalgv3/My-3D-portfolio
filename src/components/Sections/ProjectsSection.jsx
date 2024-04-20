@@ -18,9 +18,9 @@ export const ProjectsSection = () => {
     return (
         <Section>
             <div className="flex w-full h-full gap-8 items-center justify-center text-white">
-                <button className="hover:text-indigo-600 transition-colors" onClick={previousProject}>Previous</button>
-                <h2 className="text-5xl font-bold">Projects</h2>
-                <button className="hover:text-indigo-600 transition-colors" onClick={nextProject}>Next</button>
+                <button className="hover:text-indigo-600 transition-colors text-sm sm:text-base" onClick={previousProject}>Previous</button>
+                <h2 className="text-3xl md:text-5xl font-bold">Projects</h2>
+                <button className="hover:text-indigo-600 transition-colors text-sm sm:text-base" onClick={nextProject}>Next</button>
             </div>
         </Section>
     )

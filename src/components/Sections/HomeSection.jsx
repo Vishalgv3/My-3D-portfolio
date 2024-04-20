@@ -13,11 +13,10 @@ export const HomeSection = (props) => {
         // below the moon, add the text given below and instead of the contact me button, add a "Scroll down to explore" text
 
 
-        <Section>
-            <h1 className="text-6xl font-extrabold text-white leading-snug">
+        <Section mobileTop>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-snug">
                 Hello traveller, I'm
-                <br />
-                <span className="bg-white rounded px-1 italic text-black">Vishal Chaudhari</span>
+                <span className="block max-w-fit bg-white rounded px-2 mt-1 italic text-black">Vishal Chaudhari</span>
                 <motion.p className="text-lg text-white-600 mt-4"
                     initial={{
                         opacity: 0,
@@ -33,7 +32,7 @@ export const HomeSection = (props) => {
                     }}
                 >
                     I am a full-stack developer with a passion
-                    <br /> for creating beautiful and feature rich websites.
+                    <span className="ml-2 inline sm:block sm:ml-0">for creating beautiful and feature rich websites.</span>
                 </motion.p>
                 <motion.button className={`bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16`}
                     initial={{
