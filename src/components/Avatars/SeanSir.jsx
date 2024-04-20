@@ -102,3 +102,4 @@ export function SeanSir(props) {
 }
 
 useGLTF.preload('3D/models/sean_sir.glb')
+useGLTF.preload('3D/animations/Sean_Sir_Pose.fbx');
