@@ -138,3 +138,12 @@ export function Vishal(props) {
 }
 
 useGLTF.preload('3D/models/vishal.glb');
+
+useGLTF.preload('3D/animations/Kneeling.fbx');
+useGLTF.preload('3D/animations/Fall_Down.fbx');
+useGLTF.preload('3D/animations/Fall_Straight.fbx');
+useGLTF.preload('3D/animations/Lean_stand.fbx');
+useGLTF.preload('3D/animations/Lean_Thinking.fbx');
+useGLTF.preload('3D/animations/Sit_straight.fbx');
+useGLTF.preload('3D/animations/Sit_tired.fbx');
+useGLTF.preload('3D/animations/Laying.fbx');

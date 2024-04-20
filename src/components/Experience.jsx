@@ -27,6 +27,9 @@ export const Experience = (props) => {
   const cameraLookAtX = useMotionValue();
   const { viewport } = useThree();
 
+  console.log(viewport);
+  console.log(`width: ${viewport.width} <<<>>> height: ${viewport.height}`);
+
   // ----------------------- use Ref
   const parentsMaterialRef = useRef();
   const shreeRamMaterialRef = useRef();
