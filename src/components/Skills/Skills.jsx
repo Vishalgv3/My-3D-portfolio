@@ -50,8 +50,9 @@ export const Skills = (props) => {
     useFrame((state, delta) => {
         // Calculate the position and rotation based on the elapsed time        
         let positionX = Math.sin(angle) * 20;
-        let positionZ = Math.cos(angle) * 20;
+        let positionZ = Math.cos(angle) * 15;
         let rotationY = Math.cos(angle) * 1;
+        let scale = Math.sin(angle) * 0.2 + 0.6;
         let delay = 1.3;
 
         skillsRefs.forEach((ref, index) => {
@@ -59,6 +60,8 @@ export const Skills = (props) => {
                 ref.current.position.x = positionX;
                 ref.current.position.z = positionZ;
                 ref.current.rotation.y = rotationY;
+                ref.current.scale.set(scale, scale, scale);
+
             }, delay * index * 1000); // Convert seconds to milliseconds
         });
         // Increase the angle
