@@ -20,7 +20,7 @@ export const ProjectsSection = () => {
 
     return (
         <Section>
-            <div className="flex w-full h-full gap-8 items-center justify-center text-white">
+            <div className="flex w-full h-full gap-8 items-center mb-96 justify-center text-white">
                 <button className="hover:text-indigo-600 transition-colors text-sm sm:text-base" onClick={previousProject}><FontAwesomeIcon icon={faSquareCaretLeft} className="mr-1" />Previous</button>
                 <h2 className="text-3xl md:text-5xl font-bold">Projects</h2>
                 <button className="hover:text-indigo-600 transition-colors text-sm sm:text-base" onClick={nextProject}>Next<FontAwesomeIcon icon={faSquareCaretRight} className="ml-1" /></button>
