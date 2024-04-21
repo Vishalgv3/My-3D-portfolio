@@ -26,6 +26,8 @@ export const Experience = (props) => {
   const cameraPositionX = useMotionValue();
   const cameraLookAtX = useMotionValue();
   const { viewport } = useThree();
+  const isMobile = window.innerWidth < 768;
+  const responsiveRatio = viewport.width / 12;
 
   console.log(viewport);
   console.log(`width: ${viewport.width} <<<>>> height: ${viewport.height}`);
@@ -57,37 +59,37 @@ export const Experience = (props) => {
     // ----------------------- set position based on switch case
     switch (actualSection) {
       case 0:
-        x = 3;
-        y = -2;
+        x = isMobile ? 0 : 3;
+        y = isMobile ? -viewport.height / 5 : -2;
         z = 2;
         animation = "LeanThinking";
         break;
       case 1:
-        x = 4;
-        y = -viewport.height * 1 - 1.46;
+        x = isMobile ? 1.5 : 4;
+        y = isMobile ? -viewport.height / 0.8 : -viewport.height * 1 - 1.46;
         z = 0;
         animation = "LeanStand";
         break;
       case 2:
-        x = -3;
+        x = isMobile ? -1.4 : -3;
         y = -viewport.height * 2 - 0.98;
-        z = 3;
+        z = isMobile ? 1.5 : 3;
         animation = "Kneeling";
         break;
       case 3:
         x = 0;
-        y = -viewport.height * 3 - 1;
+        y = -viewport.height * 3 - (isMobile ? 0 : 1);
         z = 0;
         animation = "Laying";
         break;
       case 4:
-        x = -5;
-        y = -viewport.height * 4;
-        z = -2;
+        x = isMobile ? 0 : -5;
+        y = -viewport.height * 4 - (isMobile ? -2 : 0);
+        z = isMobile ? 0 : -2;
         animation = "FallStraight";
         break;
       default:
-        x = 3;
+        x = isMobile ? 1 : 3;
         y = -viewport.height * 5 - 2;
         z = 0;
         animation = "SitStraight";
@@ -183,7 +185,7 @@ export const Experience = (props) => {
               x: vishalPositionX,
               y: vishalPositionY,
               z: vishalPositionZ,
-              scale: actualSection === 2 ? 0.5 : 2,
+              scale: actualSection === 2 ? (isMobile ? 0.2 : 0.5) : (isMobile ? 1 : 2),
               rotateY: actualSection === 2 ? 3 : 0,
               rotateX: actualSection === 3 ? -0.2 : 0,
               rotateZ: actualSection === 3 ? -0.1 : 0,
@@ -196,7 +198,7 @@ export const Experience = (props) => {
           </motion.group>
 
           {/* HOME page's box and plane */}
-          <group position-y={-2.3} position={[0, -2.3, 1.5]} >
+          <group visible={isMobile ? false : true} position-y={-2.3} position={[0, -2.3, 1.5]} >
             <mesh scale={[0.8, 0.88, 0.8]} position={[2.2, 0.7, 1.3]} rotation-y={-0.3} >
               <boxGeometry />
               <meshToonMaterial color="#373c4b" />
@@ -208,7 +210,7 @@ export const Experience = (props) => {
           </group>
 
           {/* ABOUT ME section's box and plane */}
-          <group position-y={-viewport.height * 1 - 1.5}>
+          <group visible={isMobile ? false : true} position-y={-viewport.height * 1 - 1.5}>
             <mesh scale={[0.8, 0.85, 0.8]} position={[3.2, 0.43, 0.5]} rotation-y={-0.3} >
               <boxGeometry />
               <meshToonMaterial color="#373c4b" />
@@ -220,7 +222,7 @@ export const Experience = (props) => {
           </group>
 
           {/* SOME TEACHERS OF MY LIFE section */}
-          <group position-y={-viewport.height * 2 - 1}>
+          <group scale={isMobile ? 0.5 : 1} position-y={-viewport.height * 2 - 1}>
             {/* <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" /> */}
 
             <group>
@@ -276,13 +278,13 @@ export const Experience = (props) => {
           </group>
 
           {/* SKILLS section*/}
-          <Skills />
+          <Skills isMobile={isMobile} />
 
           {/* PROJECTS section */}
           <Projects />
 
           {/* CONTACT ME section's box and plane */}
-          <group position-y={-viewport.height * 5 - 2.5}>
+          <group scale={isMobile ? 0.5 : 1} position={isMobile ? -0.5 : 0} position-y={-viewport.height * 5 - (isMobile ? 2.4 : 2.5)}>
             <mesh scale={[3, 2, 2]} position={[3.3, 0.5, -1]} rotation-y={-0.3} >
               <boxGeometry />
               <meshToonMaterial color="#373c4b" />

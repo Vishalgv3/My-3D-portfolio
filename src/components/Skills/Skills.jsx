@@ -20,6 +20,9 @@ import { useRef } from 'react';
 
 export const Skills = (props) => {
 
+    // ----------------------- props
+    const { isMobile } = props;
+
     // ----------------------- use Three
     const { viewport } = useThree();
 
@@ -52,7 +55,7 @@ export const Skills = (props) => {
         let positionX = Math.sin(angle) * 20;
         let positionZ = Math.cos(angle) * 15;
         let rotationY = Math.cos(angle) * 1;
-        let scale = Math.sin(angle) * 0.2 + 0.6;
+        let scale = Math.sin(angle) * (isMobile ? 0.005 : 0.2) + 0.6;
         let delay = 1.3;
 
         skillsRefs.forEach((ref, index) => {
@@ -70,7 +73,7 @@ export const Skills = (props) => {
 
     return (
         <>
-            <group scale={0.2} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * 3.1}>
+            <group scale={0.2} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * (isMobile ? 3 : 3.1)}>
                 <group ref={htmlRef}>
                     <Html />
                 </group>
