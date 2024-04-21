@@ -53,7 +53,7 @@ export const Skills = (props) => {
     useFrame((state, delta) => {
         // Calculate the position and rotation based on the elapsed time        
         let positionX = Math.sin(angle) * 20;
-        let positionZ = Math.cos(angle) * 15;
+        let positionZ = Math.cos(angle) * (isMobile ? 20 : 15);
         let rotationY = Math.cos(angle) * 1;
         let scale = Math.sin(angle) * (isMobile ? 0.005 : 0.2) + 0.6;
         let delay = 1.3;

@@ -90,7 +90,7 @@ export const Experience = (props) => {
         break;
       default:
         x = isMobile ? 1 : 3;
-        y = -viewport.height * 5 - 2;
+        y = -viewport.height * 5 - (isMobile ? 2.3 : 2);
         z = 0;
         animation = "SitStraight";
     }
@@ -284,7 +284,7 @@ export const Experience = (props) => {
           <Projects />
 
           {/* CONTACT ME section's box and plane */}
-          <group scale={isMobile ? 0.5 : 1} position={isMobile ? -0.5 : 0} position-y={-viewport.height * 5 - (isMobile ? 2.4 : 2.5)}>
+          <group scale={isMobile ? 0.5 : 1} position={isMobile ? -0.5 : 0} position-y={-viewport.height * 5 - (isMobile ? 2.7 : 2.5)}>
             <mesh scale={[3, 2, 2]} position={[3.3, 0.5, -1]} rotation-y={-0.3} >
               <boxGeometry />
               <meshToonMaterial color="#373c4b" />
