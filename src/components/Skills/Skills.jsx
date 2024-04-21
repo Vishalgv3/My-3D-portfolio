@@ -70,7 +70,7 @@ export const Skills = (props) => {
 
     return (
         <>
-            <group scale={0.2} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * 3 - 3}>
+            <group scale={0.2} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * 3.1}>
                 <group ref={htmlRef}>
                     <Html />
                 </group>

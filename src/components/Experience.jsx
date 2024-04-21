@@ -64,13 +64,13 @@ export const Experience = (props) => {
         break;
       case 1:
         x = 4;
-        y = -viewport.height * 1 - 2.46;
+        y = -viewport.height * 1 - 1.46;
         z = 0;
         animation = "LeanStand";
         break;
       case 2:
         x = -3;
-        y = -viewport.height * 2.5 - 0.85;
+        y = -viewport.height * 2 - 0.98;
         z = 3;
         animation = "Kneeling";
         break;
@@ -82,7 +82,7 @@ export const Experience = (props) => {
         break;
       case 4:
         x = -5;
-        y = -viewport.height * 4 - 3;
+        y = -viewport.height * 4;
         z = -2;
         animation = "FallStraight";
         break;
@@ -208,7 +208,7 @@ export const Experience = (props) => {
           </group>
 
           {/* ABOUT ME section's box and plane */}
-          <group position-y={-viewport.height * 1 - 2.5}>
+          <group position-y={-viewport.height * 1 - 1.5}>
             <mesh scale={[0.8, 0.85, 0.8]} position={[3.2, 0.43, 0.5]} rotation-y={-0.3} >
               <boxGeometry />
               <meshToonMaterial color="#373c4b" />
@@ -220,7 +220,7 @@ export const Experience = (props) => {
           </group>
 
           {/* SOME TEACHERS OF MY LIFE section */}
-          <group position-y={-viewport.height * 3 + 3}>
+          <group position-y={-viewport.height * 2 - 1}>
             {/* <ContactShadows opacity={0.42} scale={10} blur={1} far={10} resolution={256} color="#000000" /> */}
 
             <group>
