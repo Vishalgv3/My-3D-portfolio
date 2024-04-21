@@ -6,7 +6,7 @@ export const Section = (props) => {
     return (
         <motion.section
             className={`
-        h-screen w-screen p-8 max-w-screen-2xl mx-auto flex flex-col ${mobileTop ? "justify-start md:justify-center" : "justify-center"} items-start`}
+        h-screen w-screen p-8 max-w-screen-2xl mx-auto flex flex-col ${mobileTop ? "justify-start md:justify-center" : "justify-start"} items-start`}
             initial={{
                 opacity: 0,
                 y: 50,
