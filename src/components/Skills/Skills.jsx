@@ -68,7 +68,7 @@ export const Skills = (props) => {
                 ref.current.rotation.y = isMobile ? 0 : rotationY;
                 ref.current.scale.set(scale, scale, scale);
 
-            }, delay * index * (isMobile ? 3000 : 1000)); // Convert seconds to milliseconds
+            }, delay * index * (isMobile ? 1500 : 1000)); // Convert seconds to milliseconds
         });
         // Increase the angle
         angle += 0.005;
