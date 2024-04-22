@@ -278,7 +278,10 @@ export const Experience = (props) => {
           </group>
 
           {/* SKILLS section*/}
-          <Skills isMobile={isMobile} />
+          <group position-x={0}>
+            <Skills isMobile={isMobile} />
+
+          </group>
 
           {/* PROJECTS section */}
           <Projects />

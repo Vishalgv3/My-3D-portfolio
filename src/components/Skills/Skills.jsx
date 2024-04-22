@@ -52,17 +52,20 @@ export const Skills = (props) => {
     // ----------------------- use Frame
     useFrame((state, delta) => {
         // Calculate the position and rotation based on the elapsed time        
-        let positionX = Math.sin(angle) * 20;
-        let positionZ = Math.cos(angle) * (isMobile ? 20 : 15);
+        let positionX = Math.sin(angle) * (isMobile ? 10 : 15);
+        let positionZ = Math.cos(angle) * (isMobile ? 10 : 15);
         let rotationY = Math.cos(angle) * 1;
-        let scale = Math.sin(angle) * (isMobile ? 0.005 : 0.2) + 0.6;
+        let scale = Math.sin(angle) * (isMobile ? 0.05 : 0.2) + 0.6;
         let delay = 1.3;
 
         skillsRefs.forEach((ref, index) => {
             setTimeout(() => {
                 ref.current.position.x = positionX;
-                ref.current.position.z = positionZ;
-                ref.current.rotation.y = rotationY;
+                (isMobile ?
+                    ref.current.position.y = positionZ
+                    :
+                    ref.current.position.z = positionZ);
+                ref.current.rotation.y = isMobile ? 0 : rotationY;
                 ref.current.scale.set(scale, scale, scale);
 
             }, delay * index * 1000); // Convert seconds to milliseconds
