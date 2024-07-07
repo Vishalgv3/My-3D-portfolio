@@ -21,9 +21,12 @@ export const Skills = (props) => {
 
     // ----------------------- use Three
     const { viewport } = useThree();
+
+    const { isMobile } = props;
+
     return (
         <>
-            <group scale={0.2} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * 3}>
+            <group scale={(isMobile ? 0.12 : 0.2)} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * 3}>
 
                 <group position={[0, -10, 0]}>
                     <Blender position={[0, 0, -10]} />

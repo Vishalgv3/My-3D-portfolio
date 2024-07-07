@@ -78,7 +78,7 @@ export const Experience = (props) => {
         break;
       case 3:
         x = 0;
-        y = -viewport.height * 2.6 - (isMobile ? 0 : 1);
+        y = -viewport.height * 2.6 - (isMobile ? 1.1 : 1);
         z = 0;
         animation = "Laying";
         break;
