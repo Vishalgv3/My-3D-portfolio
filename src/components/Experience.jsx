@@ -78,7 +78,7 @@ export const Experience = (props) => {
         break;
       case 3:
         x = 0;
-        y = -viewport.height * 3 - (isMobile ? 0 : 1);
+        y = -viewport.height * 2.6 - (isMobile ? 0 : 1);
         z = 0;
         animation = "Laying";
         break;
@@ -187,7 +187,7 @@ export const Experience = (props) => {
               z: vishalPositionZ,
               scale: actualSection === 2 ? (isMobile ? 0.2 : 0.5) : (isMobile ? 1 : 2),
               rotateY: actualSection === 2 ? 3 : 0,
-              rotateX: actualSection === 3 ? -0.2 : 0,
+              rotateX: 0,
               rotateZ: actualSection === 3 ? -0.1 : 0,
             }}
             transition={{

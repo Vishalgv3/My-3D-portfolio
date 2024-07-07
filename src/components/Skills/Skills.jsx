@@ -20,112 +20,80 @@ import { useRef } from 'react';
 
 export const Skills = (props) => {
 
-    // ----------------------- props
-    const { isMobile } = props;
-
     // ----------------------- use Three
     const { viewport } = useThree();
 
     // ----------------------- use Ref
     const htmlRef = useRef();
     const cssRef = useRef();
-    const blenderRef = useRef();
-    const javaRef = useRef();
-    const javaScriptRef = useRef();
-    const pythonRef = useRef();
-    const phpRef = useRef();
-    const networkingRef = useRef();
-    const linuxRef = useRef();
-    const mysqlRef = useRef();
-    const reactRef = useRef();
-    const nextRef = useRef();
-    const tailwindRef = useRef();
-    const laravelRef = useRef();
-    const threeRef = useRef();
-    const r3fRef = useRef();
-
 
     // APPRAOCHE 1: FOLLOWING IN A CIRCLE
-    let angle = 0;
-    let skillsRefs = [htmlRef, cssRef, blenderRef, javaRef, javaScriptRef, pythonRef, phpRef, networkingRef, linuxRef, mysqlRef, reactRef, nextRef, tailwindRef, laravelRef, threeRef, r3fRef];
+    // ----------------------- use Frame
+    // useFrame((state, delta) => {
+    //     // Calculate the position and rotation of the HTML element
+    //     const htmlPosition = {
+    //         x: Math.sin(state.clock.elapsedTime) * 2,
+    //         z: Math.cos(state.clock.elapsedTime) * 2,
+    //     };
+    //     const htmlRotationY = Math.cos(state.clock.elapsedTime) * 0.5;
 
+    //     // Apply the position and rotation to the HTML element
+    //     htmlRef.current.position.x = htmlPosition.x;
+    //     htmlRef.current.position.z = htmlPosition.z;
+    //     htmlRef.current.rotation.y = htmlRotationY;
+
+    //     // Apply the same position and rotation to the CSS element with a slight delay
+    //     const delay = 0.5; // Adjust as needed
+    //     const cssPosition = {
+    //         x: htmlPosition.x - 1,
+    //         z: htmlPosition.z,
+    //     };
+    //     const cssRotationY = htmlRotationY;
+
+    //     // Apply the delayed position and rotation to the CSS element
+    //     setTimeout(() => {
+    //         cssRef.current.position.x = cssPosition.x;
+    //         cssRef.current.position.z = cssPosition.z;
+    //         cssRef.current.rotation.y = cssRotationY;
+    //     }, delay * 1000); // Convert seconds to milliseconds
+    // });
+
+    // APPROACH 2: SPINNING IN PLACE
     // ----------------------- use Frame
     useFrame((state, delta) => {
-        // Calculate the position and rotation based on the elapsed time        
-        let positionX = Math.sin(angle) * (isMobile ? 20 : 15);
-        let positionZ = Math.cos(angle) * (isMobile ? 10 : 15);
-        let rotationY = Math.cos(angle) * 1;
-        let scale = Math.sin(angle) * (isMobile ? 0.05 : 0.2) + 0.6;
-        let delay = 1.3;
 
-        skillsRefs.forEach((ref, index) => {
-            setTimeout(() => {
-                ref.current.position.x = positionX;
-                (isMobile ?
-                    ref.current.position.y = positionZ
-                    :
-                    ref.current.position.z = positionZ);
-                ref.current.rotation.y = isMobile ? 0 : rotationY;
-                ref.current.scale.set(scale, scale, scale);
-
-            }, delay * index * (isMobile ? 1500 : 1000)); // Convert seconds to milliseconds
-        });
-        // Increase the angle
-        angle += 0.005;
     });
 
     return (
         <>
-            <group scale={0.2} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * (isMobile ? 3 : 3.1)}>
-                <group ref={htmlRef}>
-                    <Html />
+            <group scale={0.2} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * 3}>
+
+                <group position={[0, -10, 0]}>
+                    <Blender position={[0, 0, -10]} />
+                    <Css position={[0, 0, -3.2]} />
+                    <Html position={[0, 0, 3.5]} />
+                    <Java position={[0, 0, 10.5]} />
                 </group>
-                <group ref={cssRef}>
-                    <Css />
+                <group position={[0, -5, 0]}>
+                    <JavaScript position={[0, 0, -10]} />
+                    <Laravel position={[0, 0, -3.2]} />
+                    <Linux position={[0, 0, 3.5]} />
+                    <MySQL position={[0, 0, 10.5]} />
                 </group>
-                <group ref={blenderRef}>
-                    <Blender />
+                <group position={[0, 0, 0]}>
+                    <Networking position={[0, 0, -10]} />
+                    <NextJS position={[0, 0, -3.2]} />
+                    <PHP position={[0, 0, 3.5]} />
+                    <Python position={[0, 0, 10.5]} />
                 </group>
-                <group ref={javaRef}>
-                    <Java />
+                <group position={[0, 5, 0]}>
+                    <ReactJS position={[0, 0, -10]} />
+                    <R3F position={[0, 0, -3.2]} />
+                    <Tailwind position={[0, 0, 3.5]} />
+                    <ThreeJS position={[0, 0, 10.5]} />
                 </group>
-                <group ref={javaScriptRef}>
-                    <JavaScript />
-                </group>
-                <group ref={laravelRef}>
-                    <Laravel />
-                </group>
-                <group ref={linuxRef}>
-                    <Linux />
-                </group>
-                <group ref={mysqlRef}>
-                    <MySQL />
-                </group>
-                <group ref={networkingRef}>
-                    <Networking />
-                </group>
-                <group ref={nextRef}>
-                    <NextJS />
-                </group>
-                <group ref={phpRef}>
-                    <PHP />
-                </group>
-                <group ref={pythonRef}>
-                    <Python />
-                </group>
-                <group ref={reactRef}>
-                    <ReactJS />
-                </group>
-                <group ref={r3fRef}>
-                    <R3F />
-                </group>
-                <group ref={threeRef}>
-                    <ThreeJS />
-                </group>
-                <group ref={tailwindRef}>
-                    <Tailwind />
-                </group>
-            </group >
+
+            </group>
         </>
     )
 
