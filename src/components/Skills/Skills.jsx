@@ -16,54 +16,11 @@ import { ThreeJS } from './ThreeJS';
 import { R3F } from './R3F';
 
 import { useFrame, useThree } from '@react-three/fiber';
-import { useRef } from 'react';
 
 export const Skills = (props) => {
 
     // ----------------------- use Three
     const { viewport } = useThree();
-
-    // ----------------------- use Ref
-    const htmlRef = useRef();
-    const cssRef = useRef();
-
-    // APPRAOCHE 1: FOLLOWING IN A CIRCLE
-    // ----------------------- use Frame
-    // useFrame((state, delta) => {
-    //     // Calculate the position and rotation of the HTML element
-    //     const htmlPosition = {
-    //         x: Math.sin(state.clock.elapsedTime) * 2,
-    //         z: Math.cos(state.clock.elapsedTime) * 2,
-    //     };
-    //     const htmlRotationY = Math.cos(state.clock.elapsedTime) * 0.5;
-
-    //     // Apply the position and rotation to the HTML element
-    //     htmlRef.current.position.x = htmlPosition.x;
-    //     htmlRef.current.position.z = htmlPosition.z;
-    //     htmlRef.current.rotation.y = htmlRotationY;
-
-    //     // Apply the same position and rotation to the CSS element with a slight delay
-    //     const delay = 0.5; // Adjust as needed
-    //     const cssPosition = {
-    //         x: htmlPosition.x - 1,
-    //         z: htmlPosition.z,
-    //     };
-    //     const cssRotationY = htmlRotationY;
-
-    //     // Apply the delayed position and rotation to the CSS element
-    //     setTimeout(() => {
-    //         cssRef.current.position.x = cssPosition.x;
-    //         cssRef.current.position.z = cssPosition.z;
-    //         cssRef.current.rotation.y = cssRotationY;
-    //     }, delay * 1000); // Convert seconds to milliseconds
-    // });
-
-    // APPROACH 2: SPINNING IN PLACE
-    // ----------------------- use Frame
-    useFrame((state, delta) => {
-
-    });
-
     return (
         <>
             <group scale={0.2} rotation={[0, -Math.PI / 2, 0]} position-y={-viewport.height * 3}>
