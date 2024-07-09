@@ -42,13 +42,14 @@ export const AboutSection = () => {
                             <div className="flex-none max-w-full px-3">
                                 <div>
                                     <div className="mb-0 font-sans max-w-md font-semibold leading-normal text-sm">
-                                        <p className="mb-5">I am orginally from Gandhinagar, Gujarat, India. I'm currently enrolled in a diploma program called "IT Web Programming" specializing in full stack web development at NSCC in Truro, NS, Canada.
+                                        <p className="mb-5">
+                                            I am orginally from Gandhinagar, Gujarat, India. I acquired a diploma with honours in a program called "IT Web Programming" specializing in full stack web development at NSCC in Truro, NS, Canada.
                                         </p>
                                         <p className="mb-5">
-                                            I came to Canada in June, 2022 right after completing my high school in India. So, I didn't have any programming experience. Heck, I didn't even have a laptop until I came to Canada!
+                                            I came to Canada in June, 2022 right after completing my high school in India. Over the past two years, I have dedicated myself to learning and mastering web development. This journey has been incredibly rewarding, and I owe a lot to a special mentor who has been my teacher and friend, guiding me through every step of the way.
                                         </p>
                                         <p className="mb-5">
-                                            But here we are now, I have learned so much in the past two years with utmost details, and all the credit goes to a special guy who has been my teacher, mentor, and friend. He has taught me everything I know about programming and web development.
+                                            Now, I am equipped with a solid foundation in programming and web development, ready to contribute to innovative projects and continue growing in this dynamic field.
                                         </p>
                                         Scroll to learn more...
                                     </div>
