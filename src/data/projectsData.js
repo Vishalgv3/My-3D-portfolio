@@ -23,4 +23,10 @@ export const projects = [
         image: "/projectImages/project-4.png",
         description: "Traditional photo album with additional functionality.",
     },
+    {
+        title: "Realtor Preet Singh",
+        url: "https://realtor-preet-singh.vercel.app/",
+        image: "/projectImages/project-5.png",
+        description: "Single page website for my elder-brother-figure.",
+    },
 ];
