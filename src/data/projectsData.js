@@ -29,4 +29,10 @@ export const projects = [
         image: "/projectImages/project-5.png",
         description: "Single page website for one of my many elder-brother-figures.",
     },
+    {
+        title: "Airbnb Clone",
+        url: "https://www.linkedin.com/posts/vishalgv3_aws-cloud-practitioner-activity-7258597980696461315-FnRn?utm_source=share&utm_medium=member_desktop",
+        image: "/projectImages/project-6.png",
+        description: "Created a clone of \"Airbnb\" to learn about system design.",
+    },
 ];
