@@ -107,9 +107,16 @@ export const Experience = (props) => {
     setVishalPositionZ(z);
   }, [actualSection]);
 
+  // CAMERA ANIMATION WHEN MENU OPENED
+  // useEffect(() => {
+  //   animate(cameraPositionX, menuOpened ? -5 : 0, { ...framerMotionConfig });
+  //   animate(cameraLookAtX, menuOpened ? 5 : 0, { ...framerMotionConfig });
+  // }, [menuOpened, cameraPositionX, cameraLookAtX])
+
+  // NO CAMERA ANIMATION WHEN MENU OPENED
   useEffect(() => {
-    animate(cameraPositionX, menuOpened ? -5 : 0, { ...framerMotionConfig });
-    animate(cameraLookAtX, menuOpened ? 5 : 0, { ...framerMotionConfig });
+    animate(cameraPositionX, 0);
+    animate(cameraLookAtX, 0);
   }, [menuOpened, cameraPositionX, cameraLookAtX])
 
   // ----------------------- use Frame
