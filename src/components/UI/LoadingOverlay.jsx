@@ -31,20 +31,8 @@ export const LoadingOverlay = (props) => {
                     Vishal Chaudhari
                 </div>
                 <div className="opacity-40">Vishal Chaudhari</div>
-            </div>
-      
-            <div className="text-xl md:text-4xl font-bold text-indigo-900 relative">
-                <div
-                    className="absolute left-0 top-0 overflow-hidden truncate text-clip transition-all duration-500"
-                    style={{
-                        width: `${progress}%`,
-                    }}
-                >
-                    Loading...
-                </div>
-                <div className="opacity-40">Loading...</div>
+                <div className="opacity-40 text-xl md:text-4xl">Vishal Chaudhari</div>
             </div>
         </div>
-          </div>
     );
 };
