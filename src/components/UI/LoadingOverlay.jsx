@@ -31,7 +31,7 @@ export const LoadingOverlay = (props) => {
                     Vishal Chaudhari
                 </div>
                 <div className="opacity-40">Vishal Chaudhari</div>
-                <div className="opacity-40 text-xl md:text-4xl">Vishal Chaudhari</div>
+                <div className="opacity-40 text-xl md:text-4xl">Loading...</div>
             </div>
         </div>
     );
