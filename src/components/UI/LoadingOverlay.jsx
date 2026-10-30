@@ -20,7 +20,7 @@ export const LoadingOverlay = (props) => {
 
             
             <div
-                className={`fixed flex-column top-0 left-0 w-full h-full z-50 transition-opacity duration-1000 pointer-events-none touch-action-none
+                className={`fixed flex-row top-0 left-0 w-full h-full z-50 transition-opacity duration-1000 pointer-events-none touch-action-none
       flex items-center justify-center bg-indigo-50
       ${started ? "opacity-0" : "opacity-100"}`}
             >
