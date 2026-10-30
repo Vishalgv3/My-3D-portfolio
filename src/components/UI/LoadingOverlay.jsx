@@ -38,9 +38,9 @@ export const LoadingOverlay = (props) => {
 
 
                 
-                <div className="text-xl md:text-4xl font-bold text-indigo-900 relative">
+                <div className="text-xl md:text-4xl font-bold text-indigo-900">
                     <div
-                        className="absolute left-0 top-0 overflow-hidden truncate text-clip transition-all duration-500"
+                        className="left-0 top-0 overflow-hidden truncate text-clip transition-all duration-500"
                         style={{
                             width: `${progress}%`,
                         }}
